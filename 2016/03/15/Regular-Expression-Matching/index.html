@@ -14,7 +14,7 @@ Problem:Implement regular expression matching with support for ‘.’ and ‘*�
 <meta property="og:site_name" content="一夜花甲">
 <meta property="og:description" content="Leetcode链接/Regular Expression Matching
 Problem:Implement regular expression matching with support for ‘.’ and ‘*’.">
-<meta property="og:updated_time" content="2016-03-15T17:16:24.000Z">
+<meta property="og:updated_time" content="2016-03-15T17:17:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Regular Expression Matching">
 <meta name="twitter:description" content="Leetcode链接/Regular Expression Matching
@@ -248,14 +248,14 @@ Problem:Implement regular expression matching with support for ‘.’ and ‘*�
 <li><p>首先分析题意:<br><strong>“.”</strong>号代表一个任意的字符，<strong>*</strong>代表零个或者多个前驱字符，那么重点就在如何分情况讨论零个或者多个前驱字符情况；  </p>
 </li>
 <li><p>如果当前字符的下一个字符是<strong>*</strong>字符，那么存在以下可能性；</p>
-<ol>
+<ul>
 <li>零个字符，那么这种情况意味着<strong>x*</strong>这两个字符没起到任何作用，其效果等价于匹配<strong>s</strong>和<strong>p.substring(2)</strong>;</li>
 <li>假设代表多个前驱字符，那么我们需要每次对当前的字符和匹配字符进行比较，比较的结果两种：<ul>
 <li>两者字符相同，包含字符相同和匹配字符是<strong>“.”</strong>的情况，那么<strong>s = s.substring(1)</strong>; p不变，因为可能是匹配多个前驱字符；</li>
 <li>两者字符不同，直接返回false；</li>
 </ul>
 </li>
-</ol>
+</ul>
 </li>
 <li><p>其伪码形式如下：</p>
 <p>  <code>if (s[i] == p[i] || p[i] == &#39;.&#39;); s = s.substring(1);</code><br>  <code>else return false;</code>  </p>
