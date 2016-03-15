@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>一夜花甲</title>
+  <title>Regular Expression Matching | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一夜花甲">
-<meta property="og:url" content="http://www.smartyi8979.com/404.html">
+  <meta name="description" content="Leetcode链接/Regular Expression Matching
+Problem:Implement regular expression matching with support for ‘.’ and ‘*’.  
+123456789101112131415&amp;apos;.&amp;apos; Matches any single character.  &amp;apos;*&amp;apos; Mat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Regular Expression Matching">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/15/Regular-Expression-Matching/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-14T19:36:54.000Z">
+<meta property="og:description" content="Leetcode链接/Regular Expression Matching
+Problem:Implement regular expression matching with support for ‘.’ and ‘*’.  
+123456789101112131415&amp;apos;.&amp;apos; Matches any single character.  &amp;apos;*&amp;apos; Mat">
+<meta property="og:updated_time" content="2016-03-15T17:13:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一夜花甲">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Regular Expression Matching">
+<meta name="twitter:description" content="Leetcode链接/Regular Expression Matching
+Problem:Implement regular expression matching with support for ‘.’ and ‘*’.  
+123456789101112131415&amp;apos;.&amp;apos; Matches any single character.  &amp;apos;*&amp;apos; Mat">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -196,11 +202,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Regular-Expression-Matching" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/404.html" class="article-date">
-  	<time datetime="2016-03-14T19:49:20.000Z" itemprop="datePublished">2016-03-14</time>
+      <a href="/2016/03/15/Regular-Expression-Matching/" class="article-date">
+  	<time datetime="2016-03-15T16:52:58.000Z" itemprop="datePublished">2016-03-15</time>
 </a>
     </div>
   
@@ -209,15 +215,80 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Regular Expression Matching
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google/">Google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8"></script>
+        <p><a href="https://leetcode.com/problems/regular-expression-matching/" target="_blank" rel="external">Leetcode链接/Regular Expression Matching</a></p>
+<h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Implement regular expression matching with support for ‘.’ and ‘*’.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&apos;.&apos; Matches any single character.  </span><br><span class="line">&apos;*&apos; Matches zero or more of the preceding element.  </span><br><span class="line"></span><br><span class="line">The matching should cover the entire input string (not partial).  </span><br><span class="line">The function prototype should be:  </span><br><span class="line">bool isMatch(const char *s, const char *p)  </span><br><span class="line"></span><br><span class="line">Some examples:  </span><br><span class="line">isMatch(&quot;aa&quot;,&quot;a&quot;) → false </span><br><span class="line">isMatch(&quot;aa&quot;,&quot;aa&quot;) → true  </span><br><span class="line">isMatch(&quot;aaa&quot;,&quot;aa&quot;) → false  </span><br><span class="line">isMatch(&quot;aa&quot;, &quot;a*&quot;) → true  </span><br><span class="line">isMatch(&quot;aa&quot;, &quot;.*&quot;) → true  </span><br><span class="line">isMatch(&quot;ab&quot;, &quot;.*&quot;) → true  </span><br><span class="line">isMatch(&quot;aab&quot;, &quot;c*a*b&quot;) → true</span><br></pre></td></tr></table></figure>
+<p>Analysis:<br>真是够难的。难度在于如何分析<strong>*</strong>号。<br>假设regular expression字符串是p，匹配字符串是s；  </p>
+<ul>
+<li><p>首先分析题意:<br><strong>“.”</strong>号代表一个任意的字符，<strong>*</strong>代表零个或者多个前驱字符，那么重点就在如何分情况讨论零个或者多个前驱字符情况；  </p>
+</li>
+<li><p>如果当前字符的下一个字符是<strong>*</strong>字符，那么存在以下可能性；</p>
+<ol>
+<li>零个字符，那么这种情况意味着<strong>x*</strong>这两个字符没起到任何作用，其效果等价于匹配<strong>s</strong>和<strong>p.substring(2)</strong>;</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>假设代表多个前驱字符，那么我们需要每次对当前的字符和匹配字符进行比较，比较的结果两种：<ul>
+<li>两者字符相同，包含字符相同和匹配字符是<strong>“.”</strong>的情况，那么<strong>s = s.substring(1)</strong>; p不变，因为可能是匹配多个前驱字符；</li>
+<li>两者字符不同，直接返回false；</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>其伪码形式如下：</p>
+<p>  <code>if (s[i] == p[i] || p[i] == &#39;.&#39;); s = s.substring(1);</code><br>  <code>else return false;</code>  </p>
+</li>
+<li><p>如果当前字符的下一个字符不是<strong>*</strong>字符，那么p往后移动就好；</p>
+</li>
+</ul>
+<p>AC代码：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public boolean isMatch(String s, String p) &#123;</span><br><span class="line"> for (int i = 0; i &lt; p.length(); s = s.substring(1)) &#123;</span><br><span class="line">	 char cur = p.charAt(i);</span><br><span class="line">	if (i + 1 &gt;= p.length() || p.charAt(i + 1) != &apos;*&apos;) &#123;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;  else if (isMatch(s, p.substring(2)))&#123;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">	if (s.isEmpty() || (s.charAt(0) != cur &amp;&amp; cur != &apos;.&apos;)) &#123;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/15/Median-of-two-sorted-array/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Median of two sorted array</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -247,7 +318,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="" data-url="http://www.smartyi8979.com/404.html"></div>
+	<div class="ds-thread" data-thread-key="Regular-Expression-Matching" data-title="Regular Expression Matching" data-url="http://www.smartyi8979.com/2016/03/15/Regular-Expression-Matching/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -291,7 +362,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
