@@ -12,12 +12,12 @@
 <meta property="og:url" content="http://www.smartyi8979.com/2016/03/15/Read-N-Characters-Given-Read4-1&2/index.html">
 <meta property="og:site_name" content="一夜花甲">
 <meta property="og:description" content="Leetcode链接/Read N Characters Given Read4Leetcode链接/Read N Characters Given Read4 II">
-<meta property="og:image" content="http://www.smartyi8979.com/Users/qiuyi/Desktop/1.png">
-<meta property="og:updated_time" content="2016-03-15T19:49:03.000Z">
+<meta property="og:image" content="http://www.smartyi8979.com/img/1.png">
+<meta property="og:updated_time" content="2016-03-15T19:53:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Read N Characters Given Read4 1&2">
 <meta name="twitter:description" content="Leetcode链接/Read N Characters Given Read4Leetcode链接/Read N Characters Given Read4 II">
-<meta name="twitter:image" content="http://www.smartyi8979.com/Users/qiuyi/Desktop/1.png">
+<meta name="twitter:image" content="http://www.smartyi8979.com/img/1.png">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -75,7 +75,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -251,7 +251,7 @@
 <p>The return value is the actual number of characters read. For example, it returns 3 if there is only 3 characters left in the file.</p>
 <p>By using the read4 API, implement the function <strong>int read(char *buf, int n)</strong> that reads n characters from the file.</p>
 <h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><p>就是给你一个已经写好的API方法，<strong>int read4(char *buf)</strong>，每次读取四个字符，然后返回值是真实读取的字符数量，也就是说可能读取的数量不足四个。然后叫你利用这个方法实现一个新的方法，<strong>int read(char *buf, int n)</strong>。<br>这道题目和上一道不同地方在于，可能会call很多次，而且每次call都会从上一次截至之后的字符开始读。为了测一下喝第一道题目的不同，直接把第一道题目的代码给粘过去，然后测试一下。发现不通过（这是理所当然的好嘛-_-#）。但我们可通过错误来分析一下到底有什么不同。</p>
-<h4 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h4><p>还是按照第一题那样，利用两个变量分别用来标记目标数组和读取数组的大小，然后一个一个放进目标数组就好了。得到错误如下：<br><img src="/Users/qiuyi/Desktop/1.png" alt="img"><br>可以从错误看到，当两次调用read方法时，第一次只读取了一个字符，按理说第二次读取时字符串还剩一个字符，但是第二次读取时什么也没读到。然后我们又想起给定的API方法一次性至多可以读四个字符，那么就是说在第一次读取过程中，读出了两个字符但是却只把一个字符放进目标数组，这样就造成第二次读取时由于之前的数据没有保存，而造成丢失。<br>那么真正的问题就来了，<strong>如何在每次读取出的字符没使用完的情况下，在后面的读取中继续使用之前的读取结果呢？</strong><br>我们可以采用全局变量来解决这个问题。<br>我现在有三个全局变量，一个是当前读取结果使用到的下表数index，一个是当前读取数组读取的字符数量num，还有一个当然就是数组本身了。那么现在就有以下情况：  </p>
+<h4 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h4><p>还是按照第一题那样，利用两个变量分别用来标记目标数组和读取数组的大小，然后一个一个放进目标数组就好了。得到错误如下：<br><img src="/img/1.png" alt="img"><br>可以从错误看到，当两次调用read方法时，第一次只读取了一个字符，按理说第二次读取时字符串还剩一个字符，但是第二次读取时什么也没读到。然后我们又想起给定的API方法一次性至多可以读四个字符，那么就是说在第一次读取过程中，读出了两个字符但是却只把一个字符放进目标数组，这样就造成第二次读取时由于之前的数据没有保存，而造成丢失。<br>那么真正的问题就来了，<strong>如何在每次读取出的字符没使用完的情况下，在后面的读取中继续使用之前的读取结果呢？</strong><br>我们可以采用全局变量来解决这个问题。<br>我现在有三个全局变量，一个是当前读取结果使用到的下表数index，一个是当前读取数组读取的字符数量num，还有一个当然就是数组本身了。那么现在就有以下情况：  </p>
 <ul>
 <li>当index为0的时候，代表当前读取数组已经使用完毕（当然初始化为0意味着还未进行读取），那么此时我们就需要进行下一轮的读取；</li>
 <li>如果index不为0，意味着之前的读取数组还没使用完毕，这一次读取可以接着使用之前的读取结果；</li>
