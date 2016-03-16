@@ -6,16 +6,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Longest Substring with At Most Two Distinct Characters | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given a string, find the length of the longest substring T that contains at most 2 distinct characters.For example, Given s = “eceba”,T is “ece” which its length is 3.">
+  <meta name="description" content="Leetcode链接/Longest Substring with At Most Two Distinct Characters
+Problem:Given a string, find the length of the longest substring T that contains at most 2 distinct characters.For example, Given s =">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Longest Substring with At Most Two Distinct Characters">
 <meta property="og:url" content="http://www.smartyi8979.com/2016/03/15/Longest Substring-with-At-Most-Two-Distinct-Characters/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given a string, find the length of the longest substring T that contains at most 2 distinct characters.For example, Given s = “eceba”,T is “ece” which its length is 3.">
-<meta property="og:updated_time" content="2016-03-16T05:55:36.000Z">
+<meta property="og:description" content="Leetcode链接/Longest Substring with At Most Two Distinct Characters
+Problem:Given a string, find the length of the longest substring T that contains at most 2 distinct characters.For example, Given s =">
+<meta property="og:updated_time" content="2016-03-16T05:58:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Longest Substring with At Most Two Distinct Characters">
-<meta name="twitter:description" content="Problem:Given a string, find the length of the longest substring T that contains at most 2 distinct characters.For example, Given s = “eceba”,T is “ece” which its length is 3.">
+<meta name="twitter:description" content="Leetcode链接/Longest Substring with At Most Two Distinct Characters
+Problem:Given a string, find the length of the longest substring T that contains at most 2 distinct characters.For example, Given s =">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -258,7 +261,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a string, find the length of the longest substring T that contains at most 2 distinct characters.<br>For example, Given <strong>s = “eceba”</strong>,<br>T is <strong>“ece”</strong> which its length is 3.<br><a id="more"></a></p>
+        <p><a href="https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/" target="_blank" rel="external">Leetcode链接/Longest Substring with At Most Two Distinct Characters</a></p>
+<h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a string, find the length of the longest substring T that contains at most 2 distinct characters.<br>For example, Given <strong>s = “eceba”</strong>,<br>T is <strong>“ece”</strong> which its length is 3.<br><a id="more"></a></p>
 <h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><p>给定一个字符串，要求求出一个满足条件的最长字串长度，条件是：该字串只能包含两个不同字符。</p>
 <h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>由于规定字串只能包含两个不同字符，但每个字符的数量可以不限。<br>这个问题可以通过滑动窗口的思想来进行解答。假设我们现在有一个滑动窗口，在这个窗口里面的字符串只包含两个独特字符，那么当我们窗口扩展到下一个字符时，出现了第三个不同的字符，那么应该如何处理这个窗口，使得新的窗口中还是包含两个不同的字符，而且最好保证长度是肯呢过字符子串的最大值。<br>那么我们可以用一个map来进行储存每个字符现的位置。这样每次遇到已经存储的字符时，都会更新当前字符所在的位置，那么也就是说其实map里面存放的是每个字符最后出现的位置。那么有了这个之后，我们就好办了。我们只要把两个字符中出线位置靠左边的那个字符之前的所有字符删除掉，就一定能保证之后的字符串里面不包含该字符，这样当新的字符进来时，子串中还是只有两个不同字符。<br>举个例子：<br><code>abac</code>,这样，当我们开始放<code>c</code>时，由于之前的子串中已经包含两个不同字符<code>a,b</code>，那么我们就需要删除一部分子串。我们可以把<code>a</code>之前的全都删掉，那么现在就只剩下接下来添加的<code>c</code>，显然不是最好的选择。更好的选择是把<code>b</code>之前的字符删掉，这时候保留的是<code>ac</code>，这才是我们更加想要的，虽然这个字符串的结果应该是3<code>aba</code>。 </p>
 <p>好了，分析完毕，来看代码。</p>
