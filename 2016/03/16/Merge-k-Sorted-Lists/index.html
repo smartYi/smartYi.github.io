@@ -6,25 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Merge k Sorted Lists | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.
-Analysis:
-首先，我们可以一个个合并下去，这样做的时间复杂度是\(O(nk^2)\).
-分析：每次进行合并，链表长度都会增加一倍，这样当最后一次合并时是长度为\((k-1)*n\)">
+  <meta name="description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Merge k Sorted Lists">
 <meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Merge-k-Sorted-Lists/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.
-Analysis:
-首先，我们可以一个个合并下去，这样做的时间复杂度是\(O(nk^2)\).
-分析：每次进行合并，链表长度都会增加一倍，这样当最后一次合并时是长度为\((k-1)*n\)">
-<meta property="og:updated_time" content="2016-03-16T19:49:43.000Z">
+<meta property="og:description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.">
+<meta property="og:updated_time" content="2016-03-16T19:49:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Merge k Sorted Lists">
-<meta name="twitter:description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.
-Analysis:
-首先，我们可以一个个合并下去，这样做的时间复杂度是\(O(nk^2)\).
-分析：每次进行合并，链表长度都会增加一倍，这样当最后一次合并时是长度为\((k-1)*n\)">
+<meta name="twitter:description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -267,7 +258,7 @@ Analysis:
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.</p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.<br><a id="more"></a></p>
 <h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h4><ul>
 <li>首先，我们可以一个个合并下去，这样做的时间复杂度是\(O(nk^2)\).<ul>
 <li>分析：每次进行合并，链表长度都会增加一倍，这样当最后一次合并时是长度为\((k-1)*n\)和\(n\)进行合并，复杂度是\(O(nk)\),而最外层又有一个长度为k的循环，因此最坏的情况就是\(O(nk^2)\).</li>
