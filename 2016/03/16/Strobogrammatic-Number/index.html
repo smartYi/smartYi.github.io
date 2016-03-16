@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Missing Ranges | 一夜花甲</title>
+  <title>Strobogrammatic Number | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem: Missing RangesGiven a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.">
+  <meta name="description" content="Leetcode链接/Strobogrammatic Number
+Problem:A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Missing Ranges">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/miss-ranges/index.html">
+<meta property="og:title" content="Strobogrammatic Number">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Strobogrammatic-Number/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem: Missing RangesGiven a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.">
-<meta property="og:updated_time" content="2016-03-16T06:07:13.000Z">
+<meta property="og:description" content="Leetcode链接/Strobogrammatic Number
+Problem:A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).">
+<meta property="og:updated_time" content="2016-03-16T06:11:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Missing Ranges">
-<meta name="twitter:description" content="Problem: Missing RangesGiven a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.">
+<meta name="twitter:title" content="Strobogrammatic Number">
+<meta name="twitter:description" content="Leetcode链接/Strobogrammatic Number
+Problem:A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +220,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-miss-ranges" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Strobogrammatic-Number" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/miss-ranges/" class="article-date">
-  	<time datetime="2016-03-16T06:02:18.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/03/16/Strobogrammatic-Number/" class="article-date">
+  	<time datetime="2016-03-16T06:08:28.000Z" itemprop="datePublished">2016-03-16</time>
 </a>
     </div>
   
@@ -234,7 +237,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Missing Ranges
+      Strobogrammatic Number
     </h1>
   
 
@@ -258,10 +261,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem-Missing-Ranges"><a href="#Problem-Missing-Ranges" class="headerlink" title="Problem: Missing Ranges"></a>Problem: Missing Ranges</h4><p>Given a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.<br><a id="more"></a><br>For example, given <code>[0, 1, 3, 50, 75]</code>, lower = <code>0</code>and upper = <code>99</code>, return <code>[&quot;2&quot;, &quot;4-&gt;49&quot;, &quot;51-&gt;74&quot;, &quot;76-&gt;99&quot;]</code>.  </p>
-<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><p>好不容易遇到一个简单的题目，真是不容易。直接上代码了，小心一点就不会出错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public List&lt;String&gt; findMissingRanges(int[] nums, int lower, int upper) &#123;</span><br><span class="line">        List&lt;String&gt; ret = new ArrayList&lt;&gt;();</span><br><span class="line">        if (upper &lt; lower || nums == null) return ret;</span><br><span class="line">        int length = nums.length;</span><br><span class="line">        if (length == 0) &#123;</span><br><span class="line">            String temp = lower == upper?&quot;&quot;+lower : lower + &quot;-&gt;&quot; + upper;</span><br><span class="line">            ret.add(temp);</span><br><span class="line">            return ret;</span><br><span class="line">        &#125;</span><br><span class="line">        int i;</span><br><span class="line">        for (i = 0; i &lt; length; i++) &#123;</span><br><span class="line">            int cur = nums[i];</span><br><span class="line">            if (i == 0 &amp;&amp; lower &lt; cur) &#123;</span><br><span class="line">                if (cur - lower == 1) &#123;</span><br><span class="line">                    ret.add(String.valueOf(lower));</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    ret.add(lower + &quot;-&gt;&quot; + (cur - 1));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else if (i &gt;= 1 &amp;&amp; cur - nums[i-1] != 1) &#123;</span><br><span class="line">                int prev = nums[i-1];</span><br><span class="line">                if (cur - prev == 2) &#123;</span><br><span class="line">                    ret.add(String.valueOf(prev + 1));</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    ret.add((prev + 1) + &quot;-&gt;&quot; + (cur - 1));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if (nums[nums.length - 1] &lt; upper) &#123;</span><br><span class="line">            if (upper - nums[nums.length - 1] == 1) &#123;</span><br><span class="line">                ret.add(String.valueOf(upper));</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                ret.add((nums[nums.length - 1] + 1) + &quot;-&gt;&quot; + upper);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p><a href="https://leetcode.com/problems/strobogrammatic-number/" target="_blank" rel="external">Leetcode链接/Strobogrammatic Number</a></p>
+<h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).<br><a id="more"></a><br>Write a function to determine if a number is strobogrammatic. The number is represented as a string.</p>
+<p>For example, the numbers <code>&quot;69&quot;, &quot;88&quot;, and &quot;818&quot;</code> are all strobogrammatic.</p>
+<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><p>又是一个很简单的题目，哎，不多说。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public boolean isStrobogrammatic(String num) &#123;</span><br><span class="line">        if (num == null || num.length() == 0) return true;</span><br><span class="line">        int length = num.length();</span><br><span class="line">        for (int i = 0; i &lt; length; i++) &#123;</span><br><span class="line">            int cur = num.charAt(i) - 48;</span><br><span class="line">            if (cur != 0 &amp;&amp; cur != 1 &amp;&amp; cur != 6 &amp;&amp; cur != 8 &amp;&amp; cur != 9) return false;</span><br><span class="line">            if (cur == 6 &amp;&amp; (num.charAt(length - i - 1)-48) != 9) return false;</span><br><span class="line">            else if (cur == 9 &amp;&amp; (num.charAt(length - i - 1)-48) != 6) return false;</span><br><span class="line">            else if (cur != 6 &amp;&amp; cur != 9 &amp;&amp; (num.charAt(length - i - 1)-48) != cur) return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -270,18 +274,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/16/Strobogrammatic-Number/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Strobogrammatic Number
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/15/markdown_tutorial_part2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Markdown tutorials Part2</div>
+    <a href="/2016/03/16/miss-ranges/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Missing Ranges</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -316,7 +311,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="miss-ranges" data-title="Missing Ranges" data-url="http://www.smartyi8979.com/2016/03/16/miss-ranges/"></div>
+	<div class="ds-thread" data-thread-key="Strobogrammatic-Number" data-title="Strobogrammatic Number" data-url="http://www.smartyi8979.com/2016/03/16/Strobogrammatic-Number/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
