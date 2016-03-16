@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Merge k Sorted Lists | 一夜花甲</title>
+  <title>Merge Intervals | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.">
+  <meta name="description" content="Problem:Given a set of intervals, merge them if any of them overlap each other.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Merge k Sorted Lists">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Merge-k-Sorted-Lists/index.html">
+<meta property="og:title" content="Merge Intervals">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Merge-Intervals/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.">
-<meta property="og:updated_time" content="2016-03-16T19:49:58.000Z">
+<meta property="og:description" content="Problem:Given a set of intervals, merge them if any of them overlap each other.">
+<meta property="og:updated_time" content="2016-03-16T19:57:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Merge k Sorted Lists">
-<meta name="twitter:description" content="Problem:Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.">
+<meta name="twitter:title" content="Merge Intervals">
+<meta name="twitter:description" content="Problem:Given a set of intervals, merge them if any of them overlap each other.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Merge-k-Sorted-Lists" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Merge-Intervals" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/Merge-k-Sorted-Lists/" class="article-date">
-  	<time datetime="2016-03-16T19:43:59.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/03/16/Merge-Intervals/" class="article-date">
+  	<time datetime="2016-03-16T19:51:56.000Z" itemprop="datePublished">2016-03-16</time>
 </a>
     </div>
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Merge k Sorted Lists
+      Merge Intervals
     </h1>
   
 
@@ -258,16 +258,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given k sorted linkedlist, merge them into one sorted linkedlist and analyse the time complexity.<br><a id="more"></a></p>
-<h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h4><ul>
-<li>首先，我们可以一个个合并下去，这样做的时间复杂度是\(O(nk^2)\).<ul>
-<li>分析：每次进行合并，链表长度都会增加一倍，这样当最后一次合并时是长度为\((k-1)*n\)和\(n\)进行合并，复杂度是\(O(nk)\),而最外层又有一个长度为k的循环，因此最坏的情况就是\(O(nk^2)\).</li>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a set of intervals, merge them if any of them overlap each other.<br><a id="more"></a></p>
+<p>For example,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Given [1,3],[2,6],[8,10],[15,18],    </span><br><span class="line">return [1,6],[8,10],[15,18].</span><br></pre></td></tr></table></figure></p>
+<h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h4><p>问题其实不难，将给出的intervals按照起始点进行排序，然后一步一步添加下去就好了。<br>但是我在做的时候还是出现了几个小问题：</p>
+<ul>
+<li>新的interval的起始点必须是两个合并intervals的最小的那个；</li>
+<li>但是结束点必须是合并intervals最大的那个；</li>
 </ul>
-</li>
-<li>可以借鉴归并排序的思想，将两两长度为n的链表进行合并，然后再对\(2*n\)的链表进行合并，尽管这样最后一个步骤的合并是\(n*k/2\)的两条链表进行合并，复杂度也是\(O(nk)\),但是外层循环的次数减为\(k/2 + k/4 + k/8 + … = log(k)\),因此总体复杂度是\(O(nklog(k))\).</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public ListNode mergeKLists(ListNode[] lists) &#123;</span><br><span class="line">        if (lists == null || lists.length == 0) return null;</span><br><span class="line">        int end = lists.length - 1;</span><br><span class="line">        while (end &gt; 0) &#123;</span><br><span class="line">            int start = 0;</span><br><span class="line">            while (start &lt; end) &#123;</span><br><span class="line">            //一头一尾，并进。</span><br><span class="line">                lists[start] = merge(lists[start], lists[end]);</span><br><span class="line">                start++;</span><br><span class="line">                end--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return lists[0];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //简单的合并两条排好序的链表</span><br><span class="line">    private ListNode merge(ListNode l1, ListNode l2) &#123;</span><br><span class="line">        ListNode dummy = new ListNode(0);</span><br><span class="line">        ListNode cur = dummy;</span><br><span class="line">        while (l1 != null &amp;&amp; l2 != null) &#123;</span><br><span class="line">            if (l1.val &lt; l2.val) &#123;</span><br><span class="line">                cur.next = l1;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                cur.next = l2;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        cur.next = l1 == null? l2:l1;</span><br><span class="line">        return dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意归并的思想，其实这题就是将归并排序的思想放到了链表。</p>
+<p>其实并不是什么难问题，只是在写的时候思维考虑不全。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public List&lt;Interval&gt; merge(List&lt;Interval&gt; intervals) &#123;</span><br><span class="line">        List&lt;Interval&gt; ret = new ArrayList&lt;&gt;();</span><br><span class="line">        if (intervals == null || intervals.size() == 0) &#123;</span><br><span class="line">            return ret;</span><br><span class="line">        &#125;</span><br><span class="line">        Collections.sort(intervals, new Comparator&lt;Interval&gt;() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public int compare(Interval l1, Interval l2) &#123;</span><br><span class="line">                return l1.start - l2.start;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        ret.add(intervals.get(0));</span><br><span class="line">        int index = 0;</span><br><span class="line">        for (int i = 1; i &lt; intervals.size(); i++) &#123;</span><br><span class="line">            Interval cur = intervals.get(i);</span><br><span class="line">            Interval prev = ret.get(index);</span><br><span class="line">            if (prev.end &gt;= cur.start) &#123;</span><br><span class="line">                Interval temp = new Interval(Math.min(prev.start, cur.start), Math.max(cur.end, prev.end));</span><br><span class="line">                ret.set(index, temp);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                ret.add(cur);</span><br><span class="line">                index++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    return ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -277,18 +276,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/16/Merge-Intervals/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/16/Insert-intervals/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Merge Intervals
+          Insert intervals
         
       </div>
     </a>
   
   
-    <a href="/2016/03/16/Generate-Parentheses/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Generate Parentheses</div>
+    <a href="/2016/03/16/Merge-k-Sorted-Lists/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Merge k Sorted Lists</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -323,7 +322,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Merge-k-Sorted-Lists" data-title="Merge k Sorted Lists" data-url="http://www.smartyi8979.com/2016/03/16/Merge-k-Sorted-Lists/"></div>
+	<div class="ds-thread" data-thread-key="Merge-Intervals" data-title="Merge Intervals" data-url="http://www.smartyi8979.com/2016/03/16/Merge-Intervals/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
