@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Search in the 2D matrix | 一夜花甲</title>
+  <title>Binary tree path | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:">
+  <meta name="description" content="Problem:Given a BST, find all paths from root to leaf.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Search in the 2D matrix">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Find-in-the-2D-matrix/index.html">
+<meta property="og:title" content="Binary tree path">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Binary-tree-path/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:">
-<meta property="og:updated_time" content="2016-03-17T18:16:54.000Z">
+<meta property="og:description" content="Problem:Given a BST, find all paths from root to leaf.">
+<meta property="og:updated_time" content="2016-03-17T18:29:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Search in the 2D matrix">
-<meta name="twitter:description" content="Problem:Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:">
+<meta name="twitter:title" content="Binary tree path">
+<meta name="twitter:description" content="Problem:Given a BST, find all paths from root to leaf.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Find-in-the-2D-matrix" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Binary-tree-path" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/17/Find-in-the-2D-matrix/" class="article-date">
-  	<time datetime="2016-03-17T18:07:01.000Z" itemprop="datePublished">2016-03-17</time>
+      <a href="/2016/03/17/Binary-tree-path/" class="article-date">
+  	<time datetime="2016-03-17T18:18:05.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Search in the 2D matrix
+      Binary tree path
     </h1>
   
 
@@ -258,25 +258,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:</p>
-<a id="more"></a>
-<ul>
-<li>Integers in each row are sorted in ascending from left to right.</li>
-<li>Integers in each column are sorted in ascending from top to bottom.</li>
-</ul>
-<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给定一个二位矩阵，这个二位矩阵有如下特性：</p>
-<ul>
-<li>每一行从左到右有序且递增；</li>
-<li>每一列从上到下有序且递增；</li>
-</ul>
-<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><p>从最右上角元素开始。会出现以下两种情况：</p>
-<ul>
-<li>如果目标元素小于当前元素，那么当前一列元素不可能会出现该元素，因为毕竟每一列是从上到下递增，那么就列index减1；</li>
-<li>如果目标元素大于当前元素，那么当前一行不会出现该元素，因为毕竟每一行都是从左到右递增，那么行index加1；</li>
-<li>如果相同，返回；</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">searchMatrix</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix == <span class="keyword">null</span> || matrix.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> row = matrix.length;</span><br><span class="line">        <span class="keyword">int</span> column = matrix[<span class="number">0</span>].length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = column - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; row &amp;&amp; j &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (target &lt; matrix[i][j]) &#123;</span><br><span class="line">                j--;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (target &gt; matrix[i][j]) &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还是比较简单的题目，重点是知道从最右上角作为搜索起点。</p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a BST, find all paths from root to leaf.<br><a id="more"></a></p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>递归查找。但是怎么递归也是有一定技巧的，之前我递归就是单纯的递归，所谓单纯的递归就是找出左右子节点到叶子节点的路径，然后给每一条路径加上当前节点的值；这样子当然可行，可是会造成代码臃肿不好看。如下面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">binaryTreePaths</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">    <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">            list.add(root.val + <span class="string">""</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                list.addAll(binaryTreePaths(root.left));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                list.addAll(binaryTreePaths(root.right));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;list.size();i++) &#123;</span><br><span class="line">                list.set(i, root.val + <span class="string">"-&gt;"</span> +list.get(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但在讨论区还看见另外一种递归方式，就是把当前已经走过的路径也包含在递归中，这样每当出现叶子节点时就直接添加就好了，代码简洁易懂。 -_-#。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">binaryTreePaths</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root != <span class="keyword">null</span>) helper(root, <span class="string">""</span>, list);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode root, String path, List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) list.add(path + root.val);</span><br><span class="line">        <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) helper(root.left, path + root.val + <span class="string">"-&gt;"</span>, list); </span><br><span class="line">        <span class="keyword">if</span> (root.right != <span class="keyword">null</span>) helper(root.right, path + root.val + <span class="string">"-&gt;"</span>, list); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看样子同样是递归，差别还是蛮大的。</p>
 
       
     </div>
@@ -286,18 +273,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/17/Binary-tree-path/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Binary tree path
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/17/Kth-element-in-BST/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kth element in BST</div>
+    <a href="/2016/03/17/Find-in-the-2D-matrix/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Search in the 2D matrix</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -332,7 +310,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Find-in-the-2D-matrix" data-title="Search in the 2D matrix" data-url="http://www.smartyi8979.com/2016/03/17/Find-in-the-2D-matrix/"></div>
+	<div class="ds-thread" data-thread-key="Binary-tree-path" data-title="Binary tree path" data-url="http://www.smartyi8979.com/2016/03/17/Binary-tree-path/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
