@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Basic Calculator | 一夜花甲</title>
+  <title>Kth element in BST | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given a valid arithmetic equation, calculate the result.">
+  <meta name="description" content="Problem:Given a BST and a number k, find the kth smallest element in the BST">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Basic Calculator">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Basic-Calculator/index.html">
+<meta property="og:title" content="Kth element in BST">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Kth-element-in-BST/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given a valid arithmetic equation, calculate the result.">
-<meta property="og:updated_time" content="2016-03-17T05:33:31.000Z">
+<meta property="og:description" content="Problem:Given a BST and a number k, find the kth smallest element in the BST">
+<meta property="og:updated_time" content="2016-03-17T05:49:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Basic Calculator">
-<meta name="twitter:description" content="Problem:Given a valid arithmetic equation, calculate the result.">
+<meta name="twitter:title" content="Kth element in BST">
+<meta name="twitter:description" content="Problem:Given a BST and a number k, find the kth smallest element in the BST">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Basic-Calculator" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Kth-element-in-BST" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/17/Basic-Calculator/" class="article-date">
-  	<time datetime="2016-03-17T05:18:53.000Z" itemprop="datePublished">2016-03-17</time>
+      <a href="/2016/03/17/Kth-element-in-BST/" class="article-date">
+  	<time datetime="2016-03-17T05:39:42.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Basic Calculator
+      Kth element in BST
     </h1>
   
 
@@ -258,26 +258,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a valid arithmetic equation, calculate the result.<br><a id="more"></a></p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>真的很难。注意题目不会出现负数这种情况，只会出现减正数。<br>There are only five cases we should handle:</p>
-<ul>
-<li>digit: it should be one digit from the current number</li>
-<li>‘+’: number is over, we can add the previous number and start a new number</li>
-<li>‘-‘: same as above</li>
-<li>‘(‘: push the previous result and the sign into the stack, set result to 0, just calculate the new result within the parenthesis.</li>
-<li>‘)’: pop out the top two numbers from stack, first one is the sign before this pair of parenthesis, second is the temporary result before this pair of parenthesis. We add them together. </li>
-</ul>
-<p>翻译过来也就是说：<br>在整个字符串中我们只需要考虑五种情况  </p>
-<ol>
-<li>数字。如果是数字，我们单纯的只是把当前的所有数字加起来，</li>
-<li>‘+’符号。 如果是’+’号，证明之前的数字结束，要开始一个新的数字，而且这个数字的符号是正号；</li>
-<li>‘－’符号。 如果是’－’号，证明之前的数字结束，要开始一个新的数字，而且这个数字的符号是负号；</li>
-<li>‘(‘符号。 如果是’(‘号，证明之前的运算结束，要开始一个新的小运算部分，而且这部分运算的符号是之前存放的符号；</li>
-<li>‘)’符号。 如果是’)’号，证明之前的小运算部分结束，要把这小部分的运算结果计算出来，然后再找出之前存放的关于这部分运算的符号；</li>
-</ol>
-<p>哎，真是很难，解释得不清楚的。直接看代码，大家理会下。 这里用到的数据结构时栈。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculate</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sign = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line">        <span class="keyword">if</span>(Character.isDigit(c))&#123;</span><br><span class="line">            number = <span class="number">10</span> * number + (<span class="keyword">int</span>)(c - <span class="string">'0'</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'+'</span>)&#123;</span><br><span class="line">            result += sign * number;</span><br><span class="line">            number = <span class="number">0</span>;</span><br><span class="line">            sign = <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'-'</span>)&#123;</span><br><span class="line">            result += sign * number;</span><br><span class="line">            number = <span class="number">0</span>;</span><br><span class="line">            sign = -<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'('</span>)&#123;</span><br><span class="line">            <span class="comment">//we push the result first, then sign;</span></span><br><span class="line">            stack.push(result);</span><br><span class="line">            stack.push(sign);</span><br><span class="line">            <span class="comment">//reset the sign and result for the value in the parenthesis</span></span><br><span class="line">            sign = <span class="number">1</span>;   </span><br><span class="line">            result = <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">')'</span>)&#123;</span><br><span class="line">            result += sign * number;  </span><br><span class="line">            number = <span class="number">0</span>;</span><br><span class="line">            result *= stack.pop();    <span class="comment">//stack.pop() is the sign before the parenthesis</span></span><br><span class="line">            result += stack.pop();   <span class="comment">//stack.pop() now is the result calculated before the parenthesis</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(number != <span class="number">0</span>) result += sign * number;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>真的是不容易啊。 -_-#。 </p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a BST and a number k, find the kth smallest element in the BST</p>
+<a id="more"></a>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>同样的还是变相考察树的前序遍历。每次从栈中pop一个元素，k就减1.直至k为0.</p>
+<p>AC1:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">        TreeNode n = root;</span><br><span class="line">        <span class="keyword">while</span>(n != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(n);</span><br><span class="line">            n = n.left;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(k &gt; <span class="number">0</span> &amp;&amp; (n != <span class="keyword">null</span> || !stack.isEmpty())) &#123;</span><br><span class="line">            <span class="keyword">if</span>(n == <span class="keyword">null</span>) &#123;</span><br><span class="line">                n = stack.pop();</span><br><span class="line">                <span class="keyword">if</span>(--k == <span class="number">0</span>) <span class="keyword">return</span> n.val;</span><br><span class="line">                n = n.right;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                stack.push(n);</span><br><span class="line">                n = n.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AC2:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Definition for a binary tree node.</span><br><span class="line"> * public class TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode left;</span><br><span class="line"> *     TreeNode right;</span><br><span class="line"> *     TreeNode(int x) &#123; val = x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">kthSmallest</span><span class="params">(TreeNode root, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</span><br><span class="line">        TreeNode n = root;</span><br><span class="line">        <span class="keyword">while</span>(n != <span class="keyword">null</span>) &#123;</span><br><span class="line">            stack.push(n);</span><br><span class="line">            n = n.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span> &amp;&amp; !stack.isEmpty()) &#123;</span><br><span class="line">            n = stack.pop();</span><br><span class="line">            <span class="keyword">if</span> (--k == <span class="number">0</span>) <span class="keyword">return</span> n.val;</span><br><span class="line">            TreeNode right = n.right;</span><br><span class="line">            <span class="keyword">while</span> (right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                stack.push(right);</span><br><span class="line">                right = right.left;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AC1没有那么直观，建议使用AC2，毕竟是我们熟悉的形式。</p>
 
       
     </div>
@@ -287,18 +275,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/17/Summary-ranges/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Summary ranges
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/17/Implement-Trie/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Implement Trie</div>
+    <a href="/2016/03/17/Summary-ranges/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Summary ranges</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -333,7 +312,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Basic-Calculator" data-title="Basic Calculator" data-url="http://www.smartyi8979.com/2016/03/17/Basic-Calculator/"></div>
+	<div class="ds-thread" data-thread-key="Kth-element-in-BST" data-title="Kth element in BST" data-url="http://www.smartyi8979.com/2016/03/17/Kth-element-in-BST/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
