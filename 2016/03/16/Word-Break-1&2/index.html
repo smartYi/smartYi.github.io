@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Word Break 1&amp;2 | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ProblemGiven a string and a dict, check whether this string can be broken into several strings that are included in the dict.
-Analysis:一看到这个题目，我的第一想法就是递归，毕竟太过直观。所以开始着手写，但是果不其然，出错了。出错结果是TLE,也就是Time Lim">
+  <meta name="description" content="ProblemGiven a string and a dict, check whether this string can be broken into several strings that are included in the dict.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Word Break 1&2">
 <meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Word-Break-1&2/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="ProblemGiven a string and a dict, check whether this string can be broken into several strings that are included in the dict.
-Analysis:一看到这个题目，我的第一想法就是递归，毕竟太过直观。所以开始着手写，但是果不其然，出错了。出错结果是TLE,也就是Time Lim">
-<meta property="og:updated_time" content="2016-03-17T01:52:52.000Z">
+<meta property="og:description" content="ProblemGiven a string and a dict, check whether this string can be broken into several strings that are included in the dict.">
+<meta property="og:updated_time" content="2016-03-17T01:54:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Word Break 1&2">
-<meta name="twitter:description" content="ProblemGiven a string and a dict, check whether this string can be broken into several strings that are included in the dict.
-Analysis:一看到这个题目，我的第一想法就是递归，毕竟太过直观。所以开始着手写，但是果不其然，出错了。出错结果是TLE,也就是Time Lim">
+<meta name="twitter:description" content="ProblemGiven a string and a dict, check whether this string can be broken into several strings that are included in the dict.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -261,7 +258,7 @@ Analysis:一看到这个题目，我的第一想法就是递归，毕竟太过�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Given a string and a dict, check whether this string can be broken into several strings that are included in the dict.</p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Given a string and a dict, check whether this string can be broken into several strings that are included in the dict.<br><a id="more"></a></p>
 <h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h4><p>一看到这个题目，我的第一想法就是递归，毕竟太过直观。所以开始着手写，但是果不其然，出错了。出错结果是TLE,也就是Time Limited Exception。 那至少证明思路没错，只是不够优化。然后看了看他给出的TLE case，发现存在重复计算，因此我们可以用cache来储存之前的计算结果，这也是一种比较常见的方法，叫做memorization。</p>
 <p>思路：<br>遍历字符串是肯定的，那么遍历的时候如何存储计算结果呢？这里有两种方法，第一可以用一个boolean数组来储存；第二可以用一个map来存储。分别来看看这两种具体做法。</p>
 <ol>
