@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Peeking iterator | 一夜花甲</title>
+  <title>Game of life | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given an Iterator class interface with methods: next() and hasNext(), design and implement a PeekingIterator that support the peek() operation – it essentially peek() at the element that will">
+  <meta name="description" content="Problem:Given a board with m by n cells, each cell has an initial state live (1) or dead (0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rul">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Peeking iterator">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Peeking-iterator/index.html">
+<meta property="og:title" content="Game of life">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Game-of-life/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given an Iterator class interface with methods: next() and hasNext(), design and implement a PeekingIterator that support the peek() operation – it essentially peek() at the element that will">
-<meta property="og:updated_time" content="2016-03-17T20:11:59.000Z">
+<meta property="og:description" content="Problem:Given a board with m by n cells, each cell has an initial state live (1) or dead (0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rul">
+<meta property="og:updated_time" content="2016-03-17T20:25:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Peeking iterator">
-<meta name="twitter:description" content="Problem:Given an Iterator class interface with methods: next() and hasNext(), design and implement a PeekingIterator that support the peek() operation – it essentially peek() at the element that will">
+<meta name="twitter:title" content="Game of life">
+<meta name="twitter:description" content="Problem:Given a board with m by n cells, each cell has an initial state live (1) or dead (0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rul">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Peeking-iterator" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Game-of-life" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/17/Peeking-iterator/" class="article-date">
-  	<time datetime="2016-03-17T19:48:40.000Z" itemprop="datePublished">2016-03-17</time>
+      <a href="/2016/03/17/Game-of-life/" class="article-date">
+  	<time datetime="2016-03-17T20:13:23.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Peeking iterator
+      Game of life
     </h1>
   
 
@@ -258,17 +258,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given an Iterator class interface with methods: next() and hasNext(), design and implement a PeekingIterator that support the peek() operation – it essentially peek() at the element that will be returned <strong><em>by the next call to next().</em></strong><br><a id="more"></a><br>Here is an example. Assume that the iterator is initialized to the beginning of the list: <code>[1, 2, 3]</code>.</p>
-<p>Call <code>next()</code> gets you 1, the first element in the list.</p>
-<p>Now you call <code>peek()</code> and it returns 2, the next element. Calling <code>next()</code> after that <strong>still</strong> return 2.</p>
-<p>You call <code>next()</code> the final time and it returns 3, the last element. Calling <code>hasNext()</code> after that should return false.</p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题目已经给出一个迭代器的接口是可以提供next和next()方法的，那么要求我们设计一个peekingIterator来实现每次调用next()方法都会返回下一个元素的值，且peek方法返回当之前next方法返回值的下一个值。</p>
-<p>仔细分析这里的例子，我们发现只有在调用next方法时，返回元素才会往后移动，而调用peek方法会返回上一次next返回元素的下一个元素。而且通过提示(好吧，我又无耻的看提示了)我们可以将下一个元素先cache进来，当我们需要是就返回。<br>好，那么现在任务很清晰了：</p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a board with m by n cells, each cell has an initial state live (1) or dead (0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rules (taken from the above Wikipedia article):<br><a id="more"></a></p>
 <ul>
-<li>next()方法返回下一个元素值；</li>
-<li>peek()方法返回上个next()方法返回值的下一个值；</li>
+<li>Any live cell with fewer than two live neighbors dies, as if caused by under-population.</li>
+<li>Any live cell with two or three live neighbors lives on to the next generation.</li>
+<li>Any live cell with more than three live neighbors dies, as if by over-population..</li>
+<li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PeekingIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Iterator&lt;Integer&gt; iterator;</span><br><span class="line">    <span class="keyword">private</span> Integer nextInteger = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PeekingIterator</span><span class="params">(Iterator&lt;Integer&gt; iterator)</span> </span>&#123;</span><br><span class="line">	    <span class="comment">// initialize any member here.</span></span><br><span class="line">	    <span class="keyword">this</span>.iterator = iterator;</span><br><span class="line">	    <span class="comment">//初始化的时候就将下一个元素cache进来。</span></span><br><span class="line">	    next();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Returns the next element in the iteration without advancing the iterator.</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> nextInteger;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// hasNext() and next() should behave the same as in the Iterator interface.</span></span><br><span class="line">	<span class="comment">// Override them if needed.</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="comment">//只有调用next()才会advance iterator。</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    Integer temp = nextInteger;</span><br><span class="line">	    nextInteger = iterator.hasNext()?iterator.next():<span class="keyword">null</span>;</span><br><span class="line">	    <span class="keyword">return</span> temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> nextInteger != <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Write a function to compute the next state (after one update) of the board given its current state.</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>哇！题目好长啊。其实就是模拟生态圈的一个题目。要求是in-place。刚开始我写这个题目，写了我100接近行代码啊，虽然过了，但显然不是最优解。因此我就不贴了。<br>好，开始逛讨论区，讨论区提出一个解法是bit manipulation。 WTF(udge)，这题目还能用bit解？于是我就耐心看完了他的解释，顿时佩服得五体投地。总体思路是这样的：</p>
+<p>用一个两位的bit表示当前cell的生活状态和下一阶段的生活状态，那么其实就只有四种情况；</p>
+<p><strong><em>[next status, current status]:  [00][01][10][11]</em></strong></p>
+<ol>
+<li>当前存活，下一阶段死亡，对应于[01]；</li>
+<li>当前存活，下一阶段存活，对应于[11]；</li>
+<li>当前死亡，下一阶段存活，对应于[10]；</li>
+<li>当前死亡，下一阶段死亡，对应于[00]；</li>
+</ol>
+<p>而且们只关心下一状态还会存活的cell的状况，那么也就是情况2和3。根据题意，如果当前死亡，下一阶段要是复活的话，邻居必须有三个目前处于存活状态；如果当前存活，下一阶段继续存活的话，邻居必须有两个到三个目前处于存活状态；其余情况不与考虑；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">gameOfLife</span><span class="params">(<span class="keyword">int</span>[][] board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (board == <span class="keyword">null</span> || board[<span class="number">0</span>].length == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> row = board.length;</span><br><span class="line">        <span class="keyword">int</span> col = board[<span class="number">0</span>].length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">                <span class="keyword">int</span> number = check(board, i, j, row, col);</span><br><span class="line">                <span class="keyword">if</span> ((number &gt;= <span class="number">2</span> &amp;&amp; number &lt;= <span class="number">3</span>) &amp;&amp; board[i][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                    board[i][j] += <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (number == <span class="number">3</span> &amp;&amp; board[i][j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    board[i][j] = <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">                board[i][j] &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span>[][] board, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span> row, <span class="keyword">int</span> col)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = Math.max(i-<span class="number">1</span>, <span class="number">0</span>); x &lt;= Math.min(i + <span class="number">1</span>, row - <span class="number">1</span>); x++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> y = Math.max(j - <span class="number">1</span>, <span class="number">0</span>); y &lt;= Math.min(j + <span class="number">1</span>, col - <span class="number">1</span>); y++) &#123;</span><br><span class="line">                ret += (board[x][y] &amp; <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ret -= (board[i][j] &amp; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有点难度，解法pretty cool，huh？</p>
 
       
     </div>
@@ -278,18 +287,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/17/Game-of-life/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Game of life
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/17/Expression-Add-Operators/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Expression Add Operators</div>
+    <a href="/2016/03/17/Peeking-iterator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Peeking iterator</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -324,7 +324,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Peeking-iterator" data-title="Peeking iterator" data-url="http://www.smartyi8979.com/2016/03/17/Peeking-iterator/"></div>
+	<div class="ds-thread" data-thread-key="Game-of-life" data-title="Game of life" data-url="http://www.smartyi8979.com/2016/03/17/Game-of-life/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
