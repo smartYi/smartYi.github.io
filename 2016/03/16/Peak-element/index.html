@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Peak element | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given an array, find one peak element index and return;
-Analysis:题目要求的是返回数组中任意一个peak element就行了。当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。那么这个题目如何运">
+  <meta name="description" content="Problem:Given an array, find one peak element index and return;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Peak element">
 <meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Peak-element/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given an array, find one peak element index and return;
-Analysis:题目要求的是返回数组中任意一个peak element就行了。当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。那么这个题目如何运">
-<meta property="og:updated_time" content="2016-03-17T02:59:26.000Z">
+<meta property="og:description" content="Problem:Given an array, find one peak element index and return;">
+<meta property="og:updated_time" content="2016-03-17T02:59:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Peak element">
-<meta name="twitter:description" content="Problem:Given an array, find one peak element index and return;
-Analysis:题目要求的是返回数组中任意一个peak element就行了。当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。那么这个题目如何运">
+<meta name="twitter:description" content="Problem:Given an array, find one peak element index and return;">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -261,7 +258,7 @@ Analysis:题目要求的是返回数组中任意一个peak element就行了。�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given an array, find one peak element index and return;</p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given an array, find one peak element index and return;<br><a id="more"></a></p>
 <h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h4><p>题目要求的是返回数组中任意一个peak element就行了。<br>当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。<br>Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。<br>那么这个题目如何运用二分查找呢？<br>题目还给出了一个预设就是，数组外的元素是负无穷，也就是说总会存在一个peak element的。那么如何运用二分查找呢？<br>当初理解这个题目，我是用爬山的例子来进行解释的。</p>
 <ul>
 <li>还是选择中间元素，然后和它之后的元素进行比较；如果小于之后的元素，那么证明你现在排山还处在上升阶段，至少下一个山头比你这个山头要大，又因为最后肯定会是下山，所以后面的山头中肯定会存在peak element；</li>
