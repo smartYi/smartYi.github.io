@@ -4,21 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Missing Ranges | 一夜花甲</title>
+  <title>Basic Calculator | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Leetcode链接/Missing Ranges
-Problem: Missing RangesGiven a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.">
+  <meta name="description" content="Problem:Given a valid arithmetic equation, calculate the result.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Missing Ranges">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/miss-ranges/index.html">
+<meta property="og:title" content="Basic Calculator">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Basic-Calculator/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Leetcode链接/Missing Ranges
-Problem: Missing RangesGiven a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.">
-<meta property="og:updated_time" content="2016-03-17T02:16:12.000Z">
+<meta property="og:description" content="Problem:Given a valid arithmetic equation, calculate the result.">
+<meta property="og:updated_time" content="2016-03-17T05:33:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Missing Ranges">
-<meta name="twitter:description" content="Leetcode链接/Missing Ranges
-Problem: Missing RangesGiven a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.">
+<meta name="twitter:title" content="Basic Calculator">
+<meta name="twitter:description" content="Problem:Given a valid arithmetic equation, calculate the result.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -220,11 +217,11 @@ Problem: Missing RangesGiven a sorted integer array where the range of elements 
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-miss-ranges" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Basic-Calculator" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/miss-ranges/" class="article-date">
-  	<time datetime="2016-03-16T06:02:18.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/03/17/Basic-Calculator/" class="article-date">
+  	<time datetime="2016-03-17T05:18:53.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -237,7 +234,7 @@ Problem: Missing RangesGiven a sorted integer array where the range of elements 
         
   
     <h1 class="article-title" itemprop="name">
-      Missing Ranges
+      Basic Calculator
     </h1>
   
 
@@ -261,10 +258,26 @@ Problem: Missing RangesGiven a sorted integer array where the range of elements 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://leetcode.com/problems/missing-ranges/" target="_blank" rel="external">Leetcode链接/Missing Ranges</a></p>
-<h4 id="Problem-Missing-Ranges"><a href="#Problem-Missing-Ranges" class="headerlink" title="Problem: Missing Ranges"></a>Problem: Missing Ranges</h4><p>Given a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.<br><a id="more"></a><br>For example, given <code>[0, 1, 3, 50, 75]</code>, lower = <code>0</code>and upper = <code>99</code>, return <code>[&quot;2&quot;, &quot;4-&gt;49&quot;, &quot;51-&gt;74&quot;, &quot;76-&gt;99&quot;]</code>.  </p>
-<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><p>好不容易遇到一个简单的题目，真是不容易。直接上代码了，小心一点就不会出错。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">findMissingRanges</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> lower, <span class="keyword">int</span> upper)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; ret = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (upper &lt; lower || nums == <span class="keyword">null</span>) <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="keyword">int</span> length = nums.length;</span><br><span class="line">        <span class="keyword">if</span> (length == <span class="number">0</span>) &#123;</span><br><span class="line">            String temp = lower == upper?<span class="string">""</span>+lower : lower + <span class="string">"-&gt;"</span> + upper;</span><br><span class="line">            ret.add(temp);</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> cur = nums[i];</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span> &amp;&amp; lower &lt; cur) &#123;</span><br><span class="line">                <span class="keyword">if</span> (cur - lower == <span class="number">1</span>) &#123;</span><br><span class="line">                    ret.add(String.valueOf(lower));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    ret.add(lower + <span class="string">"-&gt;"</span> + (cur - <span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i &gt;= <span class="number">1</span> &amp;&amp; cur - nums[i-<span class="number">1</span>] != <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">int</span> prev = nums[i-<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (cur - prev == <span class="number">2</span>) &#123;</span><br><span class="line">                    ret.add(String.valueOf(prev + <span class="number">1</span>));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    ret.add((prev + <span class="number">1</span>) + <span class="string">"-&gt;"</span> + (cur - <span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (nums[nums.length - <span class="number">1</span>] &lt; upper) &#123;</span><br><span class="line">            <span class="keyword">if</span> (upper - nums[nums.length - <span class="number">1</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">                ret.add(String.valueOf(upper));</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ret.add((nums[nums.length - <span class="number">1</span>] + <span class="number">1</span>) + <span class="string">"-&gt;"</span> + upper);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a valid arithmetic equation, calculate the result.<br><a id="more"></a></p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>真的很难。注意题目不会出现负数这种情况，只会出现减正数。<br>There are only five cases we should handle:</p>
+<ul>
+<li>digit: it should be one digit from the current number</li>
+<li>‘+’: number is over, we can add the previous number and start a new number</li>
+<li>‘-‘: same as above</li>
+<li>‘(‘: push the previous result and the sign into the stack, set result to 0, just calculate the new result within the parenthesis.</li>
+<li>‘)’: pop out the top two numbers from stack, first one is the sign before this pair of parenthesis, second is the temporary result before this pair of parenthesis. We add them together. </li>
+</ul>
+<p>翻译过来也就是说：<br>在整个字符串中我们只需要考虑五种情况  </p>
+<ol>
+<li>数字。如果是数字，我们单纯的只是把当前的所有数字加起来，</li>
+<li>‘+’符号。 如果是’+’号，证明之前的数字结束，要开始一个新的数字，而且这个数字的符号是正号；</li>
+<li>‘－’符号。 如果是’－’号，证明之前的数字结束，要开始一个新的数字，而且这个数字的符号是负号；</li>
+<li>‘(‘符号。 如果是’(‘号，证明之前的运算结束，要开始一个新的小运算部分，而且这部分运算的符号是之前存放的符号；</li>
+<li>‘)’符号。 如果是’)’号，证明之前的小运算部分结束，要把这小部分的运算结果计算出来，然后再找出之前存放的关于这部分运算的符号；</li>
+</ol>
+<p>哎，真是很难，解释得不清楚的。直接看代码，大家理会下。 这里用到的数据结构时栈。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculate</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    Stack&lt;Integer&gt; stack = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sign = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++)&#123;</span><br><span class="line">        <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line">        <span class="keyword">if</span>(Character.isDigit(c))&#123;</span><br><span class="line">            number = <span class="number">10</span> * number + (<span class="keyword">int</span>)(c - <span class="string">'0'</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'+'</span>)&#123;</span><br><span class="line">            result += sign * number;</span><br><span class="line">            number = <span class="number">0</span>;</span><br><span class="line">            sign = <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'-'</span>)&#123;</span><br><span class="line">            result += sign * number;</span><br><span class="line">            number = <span class="number">0</span>;</span><br><span class="line">            sign = -<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">'('</span>)&#123;</span><br><span class="line">            <span class="comment">//we push the result first, then sign;</span></span><br><span class="line">            stack.push(result);</span><br><span class="line">            stack.push(sign);</span><br><span class="line">            <span class="comment">//reset the sign and result for the value in the parenthesis</span></span><br><span class="line">            sign = <span class="number">1</span>;   </span><br><span class="line">            result = <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c == <span class="string">')'</span>)&#123;</span><br><span class="line">            result += sign * number;  </span><br><span class="line">            number = <span class="number">0</span>;</span><br><span class="line">            result *= stack.pop();    <span class="comment">//stack.pop() is the sign before the parenthesis</span></span><br><span class="line">            result += stack.pop();   <span class="comment">//stack.pop() now is the result calculated before the parenthesis</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(number != <span class="number">0</span>) result += sign * number;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>真的是不容易啊。 -_-#。 </p>
 
       
     </div>
@@ -274,18 +287,9 @@ Problem: Missing RangesGiven a sorted integer array where the range of elements 
     
 <nav id="article-nav">
   
-    <a href="/2016/03/16/Strobogrammatic-Number/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Strobogrammatic Number
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/15/markdown_tutorial_part2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Markdown tutorials Part2</div>
+    <a href="/2016/03/17/Implement-Trie/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Implement Trie</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -320,7 +324,7 @@ Problem: Missing RangesGiven a sorted integer array where the range of elements 
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="miss-ranges" data-title="Missing Ranges" data-url="http://www.smartyi8979.com/2016/03/16/miss-ranges/"></div>
+	<div class="ds-thread" data-thread-key="Basic-Calculator" data-title="Basic Calculator" data-url="http://www.smartyi8979.com/2016/03/17/Basic-Calculator/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
