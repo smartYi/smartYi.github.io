@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Find-Median-from-Data-Stream/index.html">
 <meta property="og:site_name" content="一夜花甲">
 <meta property="og:description" content="Problem:Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.">
-<meta property="og:updated_time" content="2016-03-17T20:38:47.000Z">
+<meta property="og:updated_time" content="2016-03-17T20:39:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Find Median from Data Stream">
 <meta name="twitter:description" content="Problem:Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.">
@@ -259,13 +259,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.<br><a id="more"></a></p>
-<p>&gt;<br>Examples:<br>[2,3,4] , the median is 3<br>[2,3], the median is (2 + 3) / 2 = 2.5</p>
+<p>&gt;</p>
+<blockquote>
+<p>Examples:<br>[2,3,4] , the median is 3<br>[2,3], the median is (2 + 3) / 2 = 2.5</p>
+</blockquote>
 <p>Design a data structure that supports the following two operations:</p>
 <ul>
 <li>void addNum(int num) - Add a integer number from the data stream to the data structure.</li>
 <li>double findMedian() - Return the median of all elements so far.</li>
 </ul>
-<p>&gt;<br>For example:<br>add(1)<br>add(2)<br>findMedian() -&gt; 1.5<br>add(3)<br>findMedian() -&gt; 2</p>
+<p>&gt;</p>
+<blockquote>
+<p>For example:<br>add(1)<br>add(2)<br>findMedian() -&gt; 1.5<br>add(3)<br>findMedian() -&gt; 2</p>
+</blockquote>
 <h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><p>还记得之前我们做的找出两个有序数组的中位数吗？在那里我就提到了一种方法是利用heap来解决那个问题。当然对于那个问题来说最优解是二分查找，但对于这个的话，我们就必须使用最大最小堆了。<a href="http://smartyi8979.com/2016/03/15/Median-of-two-sorted-array/" target="_blank" rel="external">请戳这里</a><br>顺带说一下最大最小堆：</p>
 <ul>
 <li>最大堆就是堆顶的元素是这个堆里面元素的最大值；</li>
