@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>H-index | 一夜花甲</title>
+  <title>Perfect Squares | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index.">
+  <meta name="description" content="Problem:Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="H-index">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/H-index/index.html">
+<meta property="og:title" content="Perfect Squares">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Perfect-Squares/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index.">
-<meta property="og:updated_time" content="2016-03-17T19:02:36.000Z">
+<meta property="og:description" content="Problem:Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.">
+<meta property="og:updated_time" content="2016-03-17T19:18:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H-index">
-<meta name="twitter:description" content="Problem:Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index.">
+<meta name="twitter:title" content="Perfect Squares">
+<meta name="twitter:description" content="Problem:Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-H-index" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Perfect-Squares" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/17/H-index/" class="article-date">
-  	<time datetime="2016-03-17T18:36:00.000Z" itemprop="datePublished">2016-03-17</time>
+      <a href="/2016/03/17/Perfect-Squares/" class="article-date">
+  	<time datetime="2016-03-17T19:03:21.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      H-index
+      Perfect Squares
     </h1>
   
 
@@ -258,22 +258,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher’s h-index.</p>
-<a id="more"></a>
-<p><strong>According to the definition of h-index on Wikipedia: “A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each.”</strong></p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>给你一个数组，代表一个研究员发表论文的引用指数，叫你求出这个研究员的H-index。所谓的H-index就是至少有k篇文章的引用是在k次以上；<br>比如：<br><strong>given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.</strong></p>
-<p>刚开始写的时候完全没头绪啊。-_-#。后来看了一下提示，说想想看给定一个数组最大的H-index指数是多少。 想了想，好像最大的数字就是数组长度。有了这点，心里稍微靠谱了一点。<br>那么我们就来统计数组中出现的引用次数，但是如果引用次数大于数组长度的一律归于最大H-index，也就是数组长度那组引用的统计。有了每个引用的统计之后，那么就是相加了，把相加得到的结果和当前的index相比，如果不小于，那么H-index就是它了。<br>好抽象，自己都不能理解自己说的。边看代码边理解吧，毕竟这是我觉得这是一个很好的解法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Solution &#123;</span><br><span class="line">    public int hIndex(int[] citations) &#123;</span><br><span class="line">        if (citations == null || citations.length == 0) return 0;</span><br><span class="line">        int length = citations.length;</span><br><span class="line">        int[] arr2 = new int[length + 1];</span><br><span class="line">        int ret = 0;</span><br><span class="line">        for (int i = 0; i &lt; length; i++) &#123;</span><br><span class="line">            int cur = citations[i];</span><br><span class="line">            if (cur &gt;= length) &#123;</span><br><span class="line">                arr2[length]++;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                arr2[cur]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i = length; i &gt;= 0; i--) &#123;</span><br><span class="line">            ret += arr2[i];</span><br><span class="line">            if (ret &gt;= i) &#123;</span><br><span class="line">                return i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>那么问题来了，这里的时间复杂度是多少，显然是<em>\(O(n)\)</em>。那么其实还有一种更加直观的方法，先把数组排序，排好序之后用二分查找。虽然二分查找很高效，但是数组排序再怎么样也要<em>||(O(nlogn)\)</em>的时间复杂度。<br>好，那么果然就有follow-up了。而follow-up就是问你，如果数组已经有序，如何求出H-index.</p>
-<p>就像上面提到的，用二分查找。因为已经排序，那么每次选取数组中间元素和它之后的元素的数量相比较(包括它本身)，那么就有两种情况：</p>
-<p>假设数组长度n，搜索起始元素start，终点元素end，中间元素mid；那么包括中间元素本身的后面元素的数量是\(n-mid\).</p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, …) which sum to n.<br><a id="more"></a></p>
+<h4 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h4><p>给定一个正整数n，找出最少的square number可以累加得到这个数。</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>看到这个题目，直觉就是dp。不用问我为什么，直觉的事情很难说。 （≧∇≦）。<br>好，首先看看我比较low的dp。</p>
 <ul>
-<li>当前元素的值和它之后元素的数量相同，那么证明至少有\(n-mid\)个元素是大于\(n-mid\)的，那么直接返回就好；</li>
-<li>当前元素小于它之后的元素的数量，那么证明后面元素数量过多或者本身元素值太小，甭管什么原因，出现在它之前的那些元素都不可能是答案了，所以start＋1；</li>
-<li>当前元素大于它之后的元素的数量，那么证明后面元素数量过少或者本身元素值太大，甭管什么原因，出现在它之后的那些元素都不可能是答案了，所以end－1；</li>
+<li>维护一个dp数组，里面存放的就是当前number的最小值，dp[0] = 0, dp[1] = 1；</li>
+<li>对于之后的每一个n，我们都可以把它拆分为\(i + (n-i)\)的形式，那么我只要把所有的dp[i]和dp[n-i]相加去最小就好了；</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hIndex</span><span class="params">(<span class="keyword">int</span>[] citations)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//Since the array is already sorted, the main idea is to use binary search</span></span><br><span class="line">        <span class="keyword">if</span> (citations == <span class="keyword">null</span> || citations.length &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(citations.length == <span class="number">1</span>) <span class="keyword">return</span> citations[<span class="number">0</span>] == <span class="number">0</span>?<span class="number">0</span>:<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> n = citations.length;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> end = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(start &lt;= end) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = start + (end-start)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (citations[mid] == n - mid) <span class="keyword">return</span> n-mid;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(citations[mid] &lt; n-mid) start = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> end = mid-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n-start;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个题目还是有难度的。</p>
+<p>看代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> || n == <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (Math.sqrt(i) == (<span class="keyword">int</span>)(Math.sqrt(i))) &#123;</span><br><span class="line">                dp[i] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                dp[i] = min(i,dp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[] dp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> minimum = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=(n/<span class="number">2</span>);i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp[i] + dp[n-i] &lt; minimum) minimum = dp[i] + dp[n-i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minimum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很完美，是不是。当然不是，我写出来那一瞬间就觉得哪里隐隐不对，显然还是过于复杂。然后我就忍不住看了一下讨论区，WTF(udge)，果然有问题，整体思路是没错的，但是当我们拆分n的时候，为什么要注意拆分。仔细想想，n拆分为\(3 + (n-3)\)这种形式到底有没有必要。<strong>当然是没必要啊！！！！</strong>因为根本不会有哪个整数的平方会得到3啊。其实，我们只要把n拆分成\(1+(n-1)\),\(4+(n-4)\)…..就好了，这样下来节省大量计算。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numSquares</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">    Arrays.fill(dp, Integer.MAX_VALUE);</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">int</span> min = Integer.MAX_VALUE;</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i - j*j &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            min = Math.min(min, dp[i - j*j] + <span class="number">1</span>);</span><br><span class="line">            ++j;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[i] = min;</span><br><span class="line">    &#125;       </span><br><span class="line">    <span class="keyword">return</span> dp[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看看，同样是递归，想法差一点，代码千差万别。</p>
 
       
     </div>
@@ -283,18 +279,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/17/Perfect-Squares/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Perfect Squares
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/17/Binary-tree-path/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Binary tree path</div>
+    <a href="/2016/03/17/H-index/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">H-index</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -329,7 +316,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="H-index" data-title="H-index" data-url="http://www.smartyi8979.com/2016/03/17/H-index/"></div>
+	<div class="ds-thread" data-thread-key="Perfect-Squares" data-title="Perfect Squares" data-url="http://www.smartyi8979.com/2016/03/17/Perfect-Squares/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
