@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Min stack | 一夜花甲</title>
+  <title>Peak element | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.">
+  <meta name="description" content="Problem:Given an array, find one peak element index and return;
+Analysis:题目要求的是返回数组中任意一个peak element就行了。当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。那么这个题目如何运">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Min stack">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Min-stack/index.html">
+<meta property="og:title" content="Peak element">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Peak-element/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.">
-<meta property="og:updated_time" content="2016-03-17T02:39:29.000Z">
+<meta property="og:description" content="Problem:Given an array, find one peak element index and return;
+Analysis:题目要求的是返回数组中任意一个peak element就行了。当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。那么这个题目如何运">
+<meta property="og:updated_time" content="2016-03-17T02:59:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Min stack">
-<meta name="twitter:description" content="Problem:Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.">
+<meta name="twitter:title" content="Peak element">
+<meta name="twitter:description" content="Problem:Given an array, find one peak element index and return;
+Analysis:题目要求的是返回数组中任意一个peak element就行了。当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。那么这个题目如何运">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +220,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Min-stack" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Peak-element" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/16/Min-stack/" class="article-date">
-  	<time datetime="2016-03-17T02:28:16.000Z" itemprop="datePublished">2016-03-16</time>
+      <a href="/2016/03/16/Peak-element/" class="article-date">
+  	<time datetime="2016-03-17T02:42:11.000Z" itemprop="datePublished">2016-03-16</time>
 </a>
     </div>
   
@@ -234,7 +237,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Min stack
+      Peak element
     </h1>
   
 
@@ -258,11 +261,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.<br><a id="more"></a></p>
-<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><p>题目要求我们实现一个栈，并且能在\(O(1)\)时间完成当前stack中的最小值。<br>如果有看过java中栈是怎么实现的话，那么这道题的思路其实也就清晰多了。<br>我们知道，对于栈的实现有两种方法，其一就是顺序存储，也就是数组实现的；其二是链式存储，也就是用链表实现的。那么在这里我们需要用那种方案进行实现了，数组也是可以的，但是每一个数组元素里面要包含两个信息，当前值和当前最小值；那么如果用链表的话，我们只要自己设计一个node就好了，里面可以包含我们需要的信息。<br>那我在这里采用链式存储方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">LinkedListNode</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> val;</span><br><span class="line">        <span class="keyword">int</span> min;</span><br><span class="line">        LinkedListNode next;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">LinkedListNode</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> min)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.val = x;</span><br><span class="line">            <span class="keyword">this</span>.min = min;</span><br><span class="line">            <span class="keyword">this</span>.next = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="keyword">private</span> LinkedListNode head;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            head = <span class="keyword">new</span> LinkedListNode(x,x);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            LinkedListNode newHead = <span class="keyword">new</span> LinkedListNode(x,Math.min(x,head.min));</span><br><span class="line">            newHead.next = head;</span><br><span class="line">            head = newHead;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head != <span class="keyword">null</span>) head = head.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> head.val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> head.min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>了解栈的两种实现方法也是挺重要的。这里又顺带复习一遍。</p>
-
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given an array, find one peak element index and return;</p>
+<h4 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis:"></a>Analysis:</h4><p>题目要求的是返回数组中任意一个peak element就行了。<br>当然遍历是肯定可以的，但这样就丧失了这个题目的意义。那么我们就试试用二分查找。<br>Binary search算法作为十大改变世界的算法，具有重要的意义。稍后会专门来讲讲二分查找。<br>那么这个题目如何运用二分查找呢？<br>题目还给出了一个预设就是，数组外的元素是负无穷，也就是说总会存在一个peak element的。那么如何运用二分查找呢？<br>当初理解这个题目，我是用爬山的例子来进行解释的。</p>
+<ul>
+<li>还是选择中间元素，然后和它之后的元素进行比较；如果小于之后的元素，那么证明你现在排山还处在上升阶段，至少下一个山头比你这个山头要大，又因为最后肯定会是下山，所以后面的山头中肯定会存在peak element；</li>
+<li>反之亦然；如果当前元素大于后面元素，那么你本来是从山底爬上来的，现在你之后的山头比你低，那么肯定在你之前的山头肯定有peak element，当然这个山头还包括你在的山头；</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findPeakElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span> || nums.length &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = nums.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] &lt; nums[mid + <span class="number">1</span>]) left = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -271,18 +276,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/16/Peak-element/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Peak element
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/16/LRU2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计一个LRU Cache</div>
+    <a href="/2016/03/16/Min-stack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Min stack</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -317,7 +313,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Min-stack" data-title="Min stack" data-url="http://www.smartyi8979.com/2016/03/16/Min-stack/"></div>
+	<div class="ds-thread" data-thread-key="Peak-element" data-title="Peak element" data-url="http://www.smartyi8979.com/2016/03/16/Peak-element/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
