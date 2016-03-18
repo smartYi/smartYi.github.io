@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Remove Duplicate Letters | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical">
+  <meta name="description" content="Problem:Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Remove Duplicate Letters">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Remove-Duplicate-Letters/index.html">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/17/Maximum-Product-of-Word-Lengths/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical">
-<meta property="og:updated_time" content="2016-03-18T00:45:35.000Z">
+<meta property="og:description" content="Problem:Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower c">
+<meta property="og:updated_time" content="2016-03-18T00:51:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Remove Duplicate Letters">
-<meta name="twitter:description" content="Problem:Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical">
+<meta name="twitter:description" content="Problem:Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower c">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Remove-Duplicate-Letters" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Maximum-Product-of-Word-Lengths" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/17/Remove-Duplicate-Letters/" class="article-date">
-  	<time datetime="2016-03-18T00:27:52.000Z" itemprop="datePublished">2016-03-17</time>
+      <a href="/2016/03/17/Maximum-Product-of-Word-Lengths/" class="article-date">
+  	<time datetime="2016-03-18T00:48:56.000Z" itemprop="datePublished">2016-03-17</time>
 </a>
     </div>
   
@@ -258,24 +258,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results.<br><a id="more"></a></p>
-<blockquote>
-<p>Example:<br>Given “bcabc”<br>Return “abc”</p>
-<p>Given “cbacdcbc”<br>Return “acdb”</p>
-</blockquote>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>不同于之前的删除数组重复元素，这次的删除字符串中重复字符。有两个难点：</p>
-<ul>
-<li>首先字符串不是排好序的；</li>
-<li>在不是排好序的情况下，要求我们返回字典序最小的字符串；</li>
-</ul>
-<p>(吐槽：这不是为难人嘛)<br>继续：对于这种字符串题目，真的是无从下手啊。然后看了一下题目的标签，stack。嗯！还是没什么思路，然后偷偷的看了下讨论区。解法还是很巧妙啊。</p>
-<ul>
-<li>首先统计每个字符出现的个数，以作为后面是否添加和pop的根据；</li>
-<li>预设一个大小为26的boolean数组，用来标记当前字符串是否已经用到当前字符；</li>
-<li>如果当前字符串没有用到目前字符，要把当前字符插入到合法的字典序最小的位置；</li>
-<li>然后继续。。。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">removeDuplicateLetters</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.length() == <span class="number">0</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">boolean</span>[] used = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">int</span> length = s.length();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            count[s.charAt(i) - <span class="string">'a'</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        Deque&lt;Character&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            count[s.charAt(i) - <span class="string">'a'</span>]--;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (used[s.charAt(i) - <span class="string">'a'</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span> (!deque.isEmpty() &amp;&amp; deque.peek() &gt; s.charAt(i) &amp;&amp; count[deque.peek() - <span class="string">'a'</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//如果栈顶字符大于当前字符，且栈顶字符在后面还会出现，pop出去。</span></span><br><span class="line">                used[deque.pop() - <span class="string">'a'</span>] = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            deque.push(s.charAt(i));</span><br><span class="line">            used[s.charAt(i) - <span class="string">'a'</span>] = <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (!deque.isEmpty()) &#123;</span><br><span class="line">            sb.append(deque.pop());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.reverse().toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower case letters. If no such two words exist, return 0.<br><a id="more"></a></p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>bit manipulation。由于只有26个字母，因此我们可以用一个26的binary string来表示当前字符串表示的binary number。那么要想判定两个字符串是否有相同字符，只要把两个binary string与上就好了。结果若为0，那么不存在相同字符，否则存在相同字符。</p>
+<p>很好理解，但是不容易想到bit解法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxProduct</span><span class="params">(String[] words)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (words == <span class="keyword">null</span> || words.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> length = words.length;</span><br><span class="line">        <span class="keyword">int</span>[] mask = <span class="keyword">new</span> <span class="keyword">int</span>[length];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            String cur = words[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cur.length(); j++) &#123;</span><br><span class="line">                mask[i] |= <span class="number">1</span> &lt;&lt; (cur.charAt(j) - <span class="string">'a'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; length; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> ((mask[i] &amp; mask[j]) == <span class="number">0</span>) &#123;</span><br><span class="line">                    ret = Math.max(ret, words[i].length() * words[j].length());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -285,18 +271,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/17/Maximum-Product-of-Word-Lengths/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Remove Duplicate Letters
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/17/Super-Ugly-Number/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Super Ugly Number</div>
+    <a href="/2016/03/17/Remove-Duplicate-Letters/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Remove Duplicate Letters</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -331,7 +308,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Remove-Duplicate-Letters" data-title="Remove Duplicate Letters" data-url="http://www.smartyi8979.com/2016/03/17/Remove-Duplicate-Letters/"></div>
+	<div class="ds-thread" data-thread-key="Maximum-Product-of-Word-Lengths" data-title="Remove Duplicate Letters" data-url="http://www.smartyi8979.com/2016/03/17/Maximum-Product-of-Word-Lengths/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
