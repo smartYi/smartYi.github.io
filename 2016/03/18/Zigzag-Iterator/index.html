@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Paint Fence | 一夜花甲</title>
+  <title>Zigzag Iterator | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem:There is a fence with n posts, each post can be painted with one of the k colors.">
+  <meta name="description" content="Problem:Given two 1d vectors, implement an iterator to return their elements alternately.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Paint Fence">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/18/Paint-Fence/index.html">
+<meta property="og:title" content="Zigzag Iterator">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/18/Zigzag-Iterator/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem:There is a fence with n posts, each post can be painted with one of the k colors.">
-<meta property="og:updated_time" content="2016-03-18T19:53:54.000Z">
+<meta property="og:description" content="Problem:Given two 1d vectors, implement an iterator to return their elements alternately.">
+<meta property="og:updated_time" content="2016-03-19T01:23:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Paint Fence">
-<meta name="twitter:description" content="Problem:There is a fence with n posts, each post can be painted with one of the k colors.">
+<meta name="twitter:title" content="Zigzag Iterator">
+<meta name="twitter:description" content="Problem:Given two 1d vectors, implement an iterator to return their elements alternately.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Paint-Fence" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Zigzag-Iterator" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/18/Paint-Fence/" class="article-date">
-  	<time datetime="2016-03-18T18:56:09.000Z" itemprop="datePublished">2016-03-18</time>
+      <a href="/2016/03/18/Zigzag-Iterator/" class="article-date">
+  	<time datetime="2016-03-19T01:11:56.000Z" itemprop="datePublished">2016-03-18</time>
 </a>
     </div>
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Paint Fence
+      Zigzag Iterator
     </h1>
   
 
@@ -258,31 +258,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>There is a fence with <code>n</code> posts, each post can be painted with one of the <code>k</code> colors.<br><a id="more"></a></p>
-<p>You have to paint all the posts such that no more than two adjacent fence posts have the same color.</p>
-<p>Return the total number of ways you can paint the fence.</p>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>就是dp解法。维护两个变量；一个代表最后两个是相同颜色的sameColor变量，一个是最后两个颜色不同的diffColor变量。<br>因此，每当为下一张post图颜色时，有：</p>
-<ul>
-<li>和最后一张颜色不一样，那么有(k-1)种可能性；</li>
-<li>和最后一张颜色一样，那么就必须保证最后两张颜色不一样；</li>
-</ul>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>{
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numWays</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span> </span>{
-        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;
-        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> k;
-        <span class="keyword">int</span> sameColor = k;
-        <span class="keyword">int</span> diffColor = k * (k - <span class="number">1</span>);
-        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) {
-        <span class="comment">//图相同颜色的可能性和之前的可能性相同，这里暂时存储起来。</span>
-            <span class="keyword">int</span> temp = diffColor;
-            <span class="comment">//图不同的颜色，则之前最后两张什么情况都没所谓。</span>
-            diffColor = (k - <span class="number">1</span>) * (sameColor + diffColor);
-            sameColor = temp;
-        }
-        <span class="keyword">return</span> sameColor + diffColor;
-    }
-}
-</code></pre>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given two 1d vectors, implement an iterator to return their elements alternately.<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">For example, given two 1d vectors:</span><br><span class="line"></span><br><span class="line">v1 = [1, 2]</span><br><span class="line">v2 = [3, 4, 5, 6]</span><br><span class="line">By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1, 3, 2, 4, 5, 6].</span><br></pre></td></tr></table></figure>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>因为只有两个List，所以只要来回在两个迭代器之间切换就好了。思路比较简单，但是要考虑各种corner case。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZigzagIterator</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Iterator&lt;Integer&gt; iter1;</span><br><span class="line">    <span class="keyword">private</span> Iterator&lt;Integer&gt; iter2;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> exc;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ZigzagIterator</span><span class="params">(List&lt;Integer&gt; v1, List&lt;Integer&gt; v2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (v1 == <span class="keyword">null</span> &amp;&amp; v2 == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">this</span>.iter1 = v1.iterator();</span><br><span class="line">        <span class="keyword">this</span>.iter2 = v2.iterator();</span><br><span class="line">        <span class="keyword">this</span>.exc = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Iterator&lt;Integer&gt; cur = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (!iter1.hasNext() &amp;&amp; iter2.hasNext()) cur = iter2;</span><br><span class="line">        <span class="keyword">if</span> (!iter2.hasNext() &amp;&amp; iter1.hasNext()) cur = iter1;</span><br><span class="line">        <span class="keyword">if</span> (iter1.hasNext() &amp;&amp; iter2.hasNext()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (exc % <span class="number">2</span> == <span class="number">1</span>) cur = iter1;</span><br><span class="line">            <span class="keyword">else</span> cur = iter2;</span><br><span class="line">        &#125;</span><br><span class="line">        exc++;</span><br><span class="line">        <span class="keyword">return</span> cur.next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> iter1.hasNext() || iter2.hasNext();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Your ZigzagIterator object will be instantiated and called as such:</span><br><span class="line"> * ZigzagIterator i = new ZigzagIterator(v1, v2);</span><br><span class="line"> * while (i.hasNext()) v[f()] = i.next();</span><br><span class="line"> */</span></span><br></pre></td></tr></table></figure>
+<p>follow-up。如果有多个List，其实只要用一个iterator的List就好了，可以实现在不同iterator之间的切换。</p>
 
       
     </div>
@@ -292,18 +272,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/18/Zigzag-Iterator/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/18/Flip-Game/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Zigzag Iterator
+          Flip Game 1&amp;2
         
       </div>
     </a>
   
   
-    <a href="/2016/03/18/Encode-and-Decode-Strings/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Encode and Decode Strings</div>
+    <a href="/2016/03/18/Paint-Fence/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Paint Fence</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -338,7 +318,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Paint-Fence" data-title="Paint Fence" data-url="http://www.smartyi8979.com/2016/03/18/Paint-Fence/"></div>
+	<div class="ds-thread" data-thread-key="Zigzag-Iterator" data-title="Zigzag Iterator" data-url="http://www.smartyi8979.com/2016/03/18/Zigzag-Iterator/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
