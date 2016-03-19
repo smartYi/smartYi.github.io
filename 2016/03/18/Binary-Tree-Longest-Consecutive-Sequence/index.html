@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Unique Word Abbreviation | 一夜花甲</title>
+  <title>Binary Tree Longest Consecutive Sequence | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem :An abbreviation of a word follows the form . Below are some examples of word abbreviations:">
+  <meta name="description" content="Problem :Given a binary tree, find the length of the longest consecutive sequence path.
+The path refers to any sequence of nodes from some starting node to any node in the tree along the parent-child">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unique Word Abbreviation">
-<meta property="og:url" content="http://www.smartyi8979.com/2016/03/18/Unique-Word-Abbreviation/index.html">
+<meta property="og:title" content="Binary Tree Longest Consecutive Sequence">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/18/Binary-Tree-Longest-Consecutive-Sequence/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="Problem :An abbreviation of a word follows the form . Below are some examples of word abbreviations:">
-<meta property="og:updated_time" content="2016-03-19T02:35:38.000Z">
+<meta property="og:description" content="Problem :Given a binary tree, find the length of the longest consecutive sequence path.
+The path refers to any sequence of nodes from some starting node to any node in the tree along the parent-child">
+<meta property="og:updated_time" content="2016-03-19T03:05:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Unique Word Abbreviation">
-<meta name="twitter:description" content="Problem :An abbreviation of a word follows the form . Below are some examples of word abbreviations:">
+<meta name="twitter:title" content="Binary Tree Longest Consecutive Sequence">
+<meta name="twitter:description" content="Problem :Given a binary tree, find the length of the longest consecutive sequence path.
+The path refers to any sequence of nodes from some starting node to any node in the tree along the parent-child">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -217,11 +220,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Unique-Word-Abbreviation" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Binary-Tree-Longest-Consecutive-Sequence" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/18/Unique-Word-Abbreviation/" class="article-date">
-  	<time datetime="2016-03-19T02:01:50.000Z" itemprop="datePublished">2016-03-18</time>
+      <a href="/2016/03/18/Binary-Tree-Longest-Consecutive-Sequence/" class="article-date">
+  	<time datetime="2016-03-19T03:01:42.000Z" itemprop="datePublished">2016-03-18</time>
 </a>
     </div>
   
@@ -234,7 +237,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Unique Word Abbreviation
+      Binary Tree Longest Consecutive Sequence
     </h1>
   
 
@@ -258,12 +261,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem :"></a>Problem :</h4><p>An abbreviation of a word follows the form <first letter=""><number><last letter="">. Below are some examples of word abbreviations:<br><a id="more"></a></last></number></first></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a) it                      --&gt; it    (no abbreviation)</span><br><span class="line"></span><br><span class="line">     1</span><br><span class="line">b) d|o|g                   --&gt; d1g</span><br><span class="line"></span><br><span class="line">              1    1  1</span><br><span class="line">     1---5----0----5--8</span><br><span class="line">c) i|nternationalizatio|n  --&gt; i18n</span><br><span class="line"></span><br><span class="line">              1</span><br><span class="line">     1---5----0</span><br><span class="line">d) l|ocalizatio|n          --&gt; l10n</span><br></pre></td></tr></table></figure>
-<p>Assume you have a dictionary and given a word, find whether its abbreviation is unique in the dictionary. A word’s abbreviation is unique if no other word from the dictionary has the same abbreviation.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Example: </span><br><span class="line">Given dictionary = [ &quot;deer&quot;, &quot;door&quot;, &quot;cake&quot;, &quot;card&quot; ]</span><br><span class="line"></span><br><span class="line">isUnique(&quot;dear&quot;) -&gt; false</span><br><span class="line">isUnique(&quot;cart&quot;) -&gt; true</span><br><span class="line">isUnique(&quot;cane&quot;) -&gt; false</span><br><span class="line">isUnique(&quot;make&quot;) -&gt; true</span><br></pre></td></tr></table></figure>
-<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>很简单的题目，利用map就能轻易的解答出来。但是英语不好是硬伤了，硬是在理解题意上错了好多次。总体来说就是给定一个字符串数组，然后把它转为缩略形式，最后在调用isUnique方法，看参数的缩略形式是不是unique的。unique的条件是参数要么不在字典里面，要么在字典里面，但是如果参数在字典里面，那么拥有和参数相同的缩略形式的单词只能有一个。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ValidWordAbbr</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Set&lt;String&gt;&gt; map;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ValidWordAbbr</span><span class="params">(String[] dictionary)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dictionary.length; i++) &#123;</span><br><span class="line">            String cur = dictionary[i];</span><br><span class="line">            StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            <span class="keyword">if</span> (cur.length() &lt;= <span class="number">2</span>) sb.append(cur);</span><br><span class="line">            <span class="keyword">else</span> sb.append(cur.substring(<span class="number">0</span>,<span class="number">1</span>)).append(cur.length() - <span class="number">2</span>).append(cur.charAt(cur.length() - <span class="number">1</span>));</span><br><span class="line">            <span class="keyword">if</span> (!map.containsKey(sb.toString())) map.put(sb.toString(), <span class="keyword">new</span> HashSet&lt;&gt;());</span><br><span class="line">            map.get(sb.toString()).add(cur);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isUnique</span><span class="params">(String word)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        String key = word.length() &lt;= <span class="number">2</span>? sb.append(word).toString() : sb.append(word.substring(<span class="number">0</span>,<span class="number">1</span>)).append(word.length() - <span class="number">2</span>).append(word.charAt(word.length() - <span class="number">1</span>)).toString();</span><br><span class="line">        <span class="keyword">return</span> !map.containsKey(key) || (map.get(key).size() == <span class="number">1</span> &amp;&amp; map.get(key).contains(word));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem :"></a>Problem :</h4><p>Given a binary tree, find the length of the longest consecutive sequence path.</p>
+<p>The path refers to any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The longest consecutive path need to be from parent to child (cannot be the reverse).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">For example,</span><br><span class="line">   1</span><br><span class="line">    \</span><br><span class="line">     3</span><br><span class="line">    / \</span><br><span class="line">   2   4</span><br><span class="line">        \</span><br><span class="line">         5</span><br></pre></td></tr></table></figure>
+<p>Longest consecutive sequence path is <code>3-4-5</code>, so return <code>3</code>.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  2</span><br><span class="line">   \</span><br><span class="line">    3</span><br><span class="line">   / </span><br><span class="line">  2    </span><br><span class="line"> / </span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<p>Longest consecutive sequence path is <code>2-3</code>,not <code>3-2-1</code>, so return <code>2</code>.</p>
+
       
     </div>
     
@@ -272,18 +276,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/18/Binary-Tree-Longest-Consecutive-Sequence/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Binary Tree Longest Consecutive Sequence
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/18/Flip-Game/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Flip Game 1&amp;2</div>
+    <a href="/2016/03/18/Unique-Word-Abbreviation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unique Word Abbreviation</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -318,7 +313,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Unique-Word-Abbreviation" data-title="Unique Word Abbreviation" data-url="http://www.smartyi8979.com/2016/03/18/Unique-Word-Abbreviation/"></div>
+	<div class="ds-thread" data-thread-key="Binary-Tree-Longest-Consecutive-Sequence" data-title="Binary Tree Longest Consecutive Sequence" data-url="http://www.smartyi8979.com/2016/03/18/Binary-Tree-Longest-Consecutive-Sequence/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
