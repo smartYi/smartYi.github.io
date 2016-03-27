@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://www.smartyi8979.com/2016/03/26/Add-and-Search-Word/index.html">
 <meta property="og:site_name" content="一夜花甲">
 <meta property="og:description" content="ProblemDesign a data structure that supports the following two operations:">
-<meta property="og:updated_time" content="2016-03-27T01:24:11.000Z">
+<meta property="og:updated_time" content="2016-03-27T01:24:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Add and Search Word - Data structure design">
 <meta name="twitter:description" content="ProblemDesign a data structure that supports the following two operations:">
@@ -259,7 +259,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Design a data structure that supports the following two operations:<br><a id="more"></a></p>
-<p>&gt;<br>void addWord(word)<br>bool search(word)</p>
+<blockquote>
+<p>void addWord(word)<br>bool search(word)</p>
+</blockquote>
 <p>search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">For example:</span><br><span class="line"></span><br><span class="line">addWord(&quot;bad&quot;)</span><br><span class="line">addWord(&quot;dad&quot;)</span><br><span class="line">addWord(&quot;mad&quot;)</span><br><span class="line">search(&quot;pad&quot;) -&gt; false</span><br><span class="line">search(&quot;bad&quot;) -&gt; true</span><br><span class="line">search(&quot;.ad&quot;) -&gt; true</span><br><span class="line">search(&quot;b..&quot;) -&gt; true</span><br></pre></td></tr></table></figure>
 <p>Note:<br>You may assume that all words are consist of lowercase letters a-z.</p>
