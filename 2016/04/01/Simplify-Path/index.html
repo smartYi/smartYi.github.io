@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Simplify Path | 一夜花甲</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习总结 阅读笔记 鸡皮蒜毛">
+  <meta name="description" content="Problem:Given an absolute path for a file (Unix-style), simplify it.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Simplify Path">
 <meta property="og:url" content="http://www.smartyi8979.com/2016/04/01/Simplify-Path/index.html">
 <meta property="og:site_name" content="一夜花甲">
-<meta property="og:description" content="学习总结 阅读笔记 鸡皮蒜毛">
-<meta property="og:updated_time" content="2016-04-02T03:03:57.000Z">
+<meta property="og:description" content="Problem:Given an absolute path for a file (Unix-style), simplify it.">
+<meta property="og:updated_time" content="2016-04-02T03:58:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Simplify Path">
-<meta name="twitter:description" content="学习总结 阅读笔记 鸡皮蒜毛">
+<meta name="twitter:description" content="Problem:Given an absolute path for a file (Unix-style), simplify it.">
   
     <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
   
@@ -258,7 +258,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given an absolute path for a file (Unix-style), simplify it.<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">For example,</span><br><span class="line">path = &quot;/home/&quot;, =&gt; &quot;/home&quot;</span><br><span class="line">path = &quot;/a/./b/../../c/&quot;, =&gt; &quot;/c&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>题目是不难的，主要是是不理解题意啊。看了给出的example然后自己写，发现各种各样的case都通不过，其实根本就是不懂题目问什么。不知道怎么去求解一个绝对路径的简化路径。哎！伤脑经。<br>好了，看了讨论区的思路，明白了。当给出一个绝对路径时，求解其简化路径的方法就是：</p>
+<ul>
+<li>遇见’..’或者’.’，上层路径就丢弃不用；</li>
+<li>如果最后全部被丢弃，返回’/‘。</li>
+<li>除此之外，题目还提到，多个’/‘连续出现时，只保留一个；</li>
+</ul>
+<p>那么思路就知道了，我们以’/‘为分隔符进行路径分隔，用栈储存路径信息，但凡遇见’..’或者’.’，pop，否则进行push。最后重新生成路径，就是简化路径。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">simplifyPath</span><span class="params">(String path)</span> </span>&#123;</span><br><span class="line">        Deque&lt;String&gt; stack = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">        Set&lt;String&gt; skip = <span class="keyword">new</span> HashSet&lt;&gt;(Arrays.asList(<span class="string">".."</span>,<span class="string">"."</span>,<span class="string">""</span>));</span><br><span class="line">        <span class="keyword">for</span> (String dir : path.split(<span class="string">"/"</span>)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dir.equals(<span class="string">".."</span>) &amp;&amp; !stack.isEmpty()) stack.pop();</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (!skip.contains(dir)) stack.push(dir);</span><br><span class="line">        &#125;</span><br><span class="line">        String res = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span> (String dir : stack) res = <span class="string">"/"</span> + dir + res;</span><br><span class="line">        <span class="keyword">return</span> res.isEmpty() ? <span class="string">"/"</span> : res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不难啊，只是不能理解题目意思，就是解不出来。</p>
+
       
     </div>
     
