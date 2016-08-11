@@ -1,16 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>一夜花甲</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
   
-    <link rel="icon" href="/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Graph Valid Tree | 一夜花甲</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem:Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Graph Valid Tree">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/18/Graph-Valid-Tree/index.html">
+<meta property="og:site_name" content="一夜花甲">
+<meta property="og:description" content="Problem:Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.">
+<meta property="og:updated_time" content="2016-03-18T14:51:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Graph Valid Tree">
+<meta name="twitter:description" content="Problem:Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.">
+  
+    <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/celtics.jpeg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">一夜花甲</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/life/">生活</a></li>
+				        
+							<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+				        
+							<li><a href="/categories/2015日课/">2015日课</a></li>
+				        
+							<li><a href="/categories/技术/">技术</a></li>
+				        
+							<li><a href="/tags/Leetcode/">Leetcode</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/319Morewood杂记/" style="font-size: 11.43px;">319Morewood杂记</a> <a href="/tags/Backtracking/" style="font-size: 12.86px;">Backtracking</a> <a href="/tags/Google/" style="font-size: 17.14px;">Google</a> <a href="/tags/Leetcode/" style="font-size: 18.57px;">Leetcode</a> <a href="/tags/Markdown/" style="font-size: 11.43px;">Markdown</a> <a href="/tags/感悟/" style="font-size: 14.29px;">感悟</a> <a href="/tags/教程/" style="font-size: 11.43px;">教程</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/梦境/" style="font-size: 10px;">梦境</a> <a href="/tags/生活/" style="font-size: 15.71px;">生活</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/老文/" style="font-size: 14.29px;">老文</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wdxtub.com/">小土刀的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ihozh.com">伊和的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">What hurts more? The pain of hard work or the pain of regret?</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">一夜花甲</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">一夜花甲</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/life/">生活</a></li>
+		        
+					<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+		        
+					<li><a href="/categories/2015日课/">2015日课</a></li>
+		        
+					<li><a href="/categories/技术/">技术</a></li>
+		        
+					<li><a href="/tags/Leetcode/">Leetcode</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Graph-Valid-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/18/Graph-Valid-Tree/" class="article-date">
+  	<time datetime="2016-03-18T14:00:28.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Graph Valid Tree
+    </h1>
   
 
-	
-</head>
-<body>
-	<script type="text/javascript" src="js/blog.js"></script>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google/">Google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem:"></a>Problem:</h4><p>Given n nodes labeled from <code>0</code> to <code>n - 1</code> and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">For example:</span><br><span class="line"></span><br><span class="line">Given n = 5 and edges = [[0, 1], [0, 2], [0, 3], [1, 4]], return true.</span><br><span class="line"></span><br><span class="line">Given n = 5 and edges = [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]], return false.</span><br></pre></td></tr></table></figure>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>给定一个图，判断这个图是否是一棵树。根据树的定义，我们知道：</p>
+<ul>
+<li>树中不能有环；</li>
+<li>树不是森林，所以不能存在多棵树，那也就是说遍历整个图得到的节点数量和给出n一样大；</li>
+</ul>
+<p>构图采用临接表的方法，那么其实重点就在于如何判断一个无向图中是否有环。因为根据有向图的临接表表示法，在一个edge两侧的节点都会添加到互相的临接表中，那么我们就不能通过判定一个节点的临接表是否包含另一个节点来检测是否有环。<br>通常检测图中是否有环的方法是，深搜图然后标记访问节点，一旦发现已经访问过的节点，那么就有两种情况：</p>
+<ul>
+<li>之前从其他路径访问过，那么证明图中有环；</li>
+<li>这个节点的起始点恰好是你搜索的起始点，那么其实这只是一条edge的两侧节点而已，并不是环；</li>
+</ul>
+<p>有了这两点和上面的图，我们就能够解答这道题了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">validTree</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span>[][] edges)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (edges == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (edges.length == <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">          <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        ArrayList&lt;Integer&gt;[] graph = <span class="keyword">new</span> ArrayList[n];</span><br><span class="line">        buildGraph(edges, graph);</span><br><span class="line">        <span class="keyword">boolean</span>[] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[n];</span><br><span class="line">        <span class="keyword">int</span> num = search(graph, edges[<span class="number">0</span>][<span class="number">0</span>], edges[<span class="number">0</span>][<span class="number">1</span>], visited);</span><br><span class="line">        <span class="keyword">return</span> num == n;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">buildGraph</span><span class="params">(<span class="keyword">int</span>[][] edges, List[] graph)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; edges.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> p = edges[i][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> q = edges[i][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (graph[p] == <span class="keyword">null</span>) graph[p] = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">if</span> (graph[q] == <span class="keyword">null</span>) graph[q] = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">            graph[p].add(q);</span><br><span class="line">            graph[q].add(p);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(List[] graph, <span class="keyword">int</span> start, <span class="keyword">int</span> end, <span class="keyword">boolean</span>[] visited)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">1</span>;</span><br><span class="line">        visited[start] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : (ArrayList&lt;Integer&gt;)graph[start]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visited[i]) &#123;</span><br><span class="line">                <span class="keyword">int</span> next = search(graph, i, start, visited);</span><br><span class="line">                <span class="keyword">if</span> (next == -<span class="number">1</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> ret += next;</span><br><span class="line">            &#125; </span><br><span class="line">            <span class="comment">//判断是否是一条edge的两侧节点。</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i != end) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>无向图的深搜加上图的环的检测。很重要。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/18/Palindrome-Permutation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Palindrome Permutation
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/18/3Sum-Smaller/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3Sum Smaller</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Graph-Valid-Tree" data-title="Graph Valid Tree" data-url="http://www.smartyi8979.com/2016/03/18/Graph-Valid-Tree/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 一夜花甲
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
 </body>
 </html>
