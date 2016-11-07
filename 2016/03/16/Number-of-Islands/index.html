@@ -1,16 +1,427 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>一夜花甲</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
   
-    <link rel="icon" href="/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Number of Islands I&amp;II | 一夜花甲</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem 1:Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Number of Islands I&II">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/16/Number-of-Islands/index.html">
+<meta property="og:site_name" content="一夜花甲">
+<meta property="og:description" content="Problem 1:Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You">
+<meta property="og:updated_time" content="2016-03-23T19:20:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Number of Islands I&II">
+<meta name="twitter:description" content="Problem 1:Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You">
+  
+    <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/celtics.jpeg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">一夜花甲</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/life/">生活</a></li>
+				        
+							<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+				        
+							<li><a href="/categories/2015日课/">2015日课</a></li>
+				        
+							<li><a href="/categories/技术/">技术</a></li>
+				        
+							<li><a href="/tags/Leetcode/">Leetcode</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/319Morewood杂记/" style="font-size: 11.25px;">319Morewood杂记</a> <a href="/tags/Backtracking/" style="font-size: 12.5px;">Backtracking</a> <a href="/tags/Google/" style="font-size: 17.5px;">Google</a> <a href="/tags/JSP/" style="font-size: 10px;">JSP</a> <a href="/tags/Leetcode/" style="font-size: 18.75px;">Leetcode</a> <a href="/tags/Markdown/" style="font-size: 11.25px;">Markdown</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/写文/" style="font-size: 10px;">写文</a> <a href="/tags/周记/" style="font-size: 16.25px;">周记</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/感悟/" style="font-size: 13.75px;">感悟</a> <a href="/tags/打油诗/" style="font-size: 12.5px;">打油诗</a> <a href="/tags/教程/" style="font-size: 11.25px;">教程</a> <a href="/tags/敢与高手试比高/" style="font-size: 10px;">敢与高手试比高</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/梦境/" style="font-size: 11.25px;">梦境</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/老文/" style="font-size: 13.75px;">老文</a> <a href="/tags/蝴蝶梦/" style="font-size: 11.25px;">蝴蝶梦</a> <a href="/tags/项目管理/" style="font-size: 10px;">项目管理</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wdxtub.com/">小土刀的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ihozh.com">伊和的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">What hurts more? The pain of hard work or the pain of regret?</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">一夜花甲</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">一夜花甲</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/life/">生活</a></li>
+		        
+					<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+		        
+					<li><a href="/categories/2015日课/">2015日课</a></li>
+		        
+					<li><a href="/categories/技术/">技术</a></li>
+		        
+					<li><a href="/tags/Leetcode/">Leetcode</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Number-of-Islands" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/Number-of-Islands/" class="article-date">
+  	<time datetime="2016-03-17T05:00:53.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Number of Islands I&amp;II
+    </h1>
   
 
-	
-</head>
-<body>
-	<script type="text/javascript" src="js/blog.js"></script>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google/">Google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem 1:"></a>Problem 1:</h4><p>Given a 2d grid map of ‘1’s (land) and ‘0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.<br><a id="more"></a></p>
+<h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>求解岛屿数量。给定一个二维数组，1代表陆地，0代表水。岛屿意味着周围被水包围(垂直和水平方向，不包含对角线方向)。且整个数组周围都是水。</p>
+<h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>典型的union find题目。给定一组连通图，求出连通图的个数。</p>
+<p>DFS和BFS都行。每次走过一个陆地之后，把它变成水，这样之后就不会再次走到了。  </p>
+<p>这里是DFS版。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> m;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> n;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        m = grid.length;</span><br><span class="line">        <span class="keyword">if</span>(m == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        n = grid[<span class="number">0</span>].length;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] != <span class="string">'1'</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="comment">//只要是陆地，证明是一块新的岛屿。</span></span><br><span class="line">                count++;</span><br><span class="line">                dfs(grid, i , j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[][] grid, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; <span class="number">0</span> || i &gt;= m || j &lt; <span class="number">0</span> || j &gt;= n) <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(grid[i][j] == <span class="string">'1'</span>) &#123;</span><br><span class="line">        <span class="comment">//把走过的陆地变成水。</span></span><br><span class="line">            grid[i][j] = <span class="string">'0'</span>;</span><br><span class="line">            dfs(grid, i-<span class="number">1</span>, j);</span><br><span class="line">            dfs(grid, i+<span class="number">1</span>, j);</span><br><span class="line">            dfs(grid, i, j-<span class="number">1</span>);</span><br><span class="line">            dfs(grid, i, j+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AC2: BFS</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (grid == <span class="keyword">null</span> || grid.length == <span class="number">0</span> || grid[<span class="number">0</span>].length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> row = grid.length;</span><br><span class="line">        <span class="keyword">int</span> col = grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                    System.out.println(ret);</span><br><span class="line">                    ret++;</span><br><span class="line">                    bfs(grid, i, j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">char</span>[][] grid, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        Deque&lt;<span class="keyword">int</span>[]&gt; deque = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] dx = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] dy = &#123;<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        deque.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;x, y&#125;);</span><br><span class="line">        grid[x][y] = <span class="string">'0'</span>;</span><br><span class="line">        <span class="keyword">while</span> (deque.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] cur = deque.poll();</span><br><span class="line">            System.out.println(<span class="string">"here"</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> nextX = cur[<span class="number">0</span>] + dx[i];</span><br><span class="line">                <span class="keyword">int</span> nextY = cur[<span class="number">1</span>] + dy[i];</span><br><span class="line">                <span class="keyword">if</span> (nextX &gt;= <span class="number">0</span> &amp;&amp; nextX &lt; grid.length &amp;&amp; nextY &gt;= <span class="number">0</span> </span><br><span class="line">                    &amp;&amp; nextY &lt; grid[<span class="number">0</span>].length &amp;&amp; grid[nextX][nextY] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                        grid[nextX][nextY] = <span class="string">'0'</span>;</span><br><span class="line">                        deque.offer(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;nextX, nextY&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不知道怎么的，代码一样的，不同时候跑，有时候不通过有时候又通过。然后我对比了一下BFS和BFS的运行时间，未免相差太远。BFS：260+，DFS：3ms。</p>
+<p>比较简单的union find题目，重点是要看破本质啊。 -_-#。</p>
+<h4 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem 2:"></a>Problem 2:</h4><p>A 2d grid map of m rows and n columns is initially filled with water. We may perform an addLand operation which turns the water at position (row, col) into a land. Given a list of positions to operate, count the number of islands after each addLand operation. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+<h4 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h4><p>之前是叫你求解出岛屿的数量，但在那里岛屿的数量是不会变化的。而在这里不断有水变成岛屿。然后叫你求解岛屿的数量。当然你还是可以按照上面那种方法求解，但显然这里另有他法。</p>
+<p>这里的岛屿动态变化，如果每变化一次，你都按照BFS或者DFS方法去解答，未免太耗内存。稍作分析，会发现每次新增岛屿其实只会影响它周围四个元素的状态，而这些状态我们可以实现存储。利用hash值我们为每个元素打上独特的id，然后再根据周围元素的id来更新当前的id；</p>
+<ul>
+<li>构建一个所有元素大小的hash数组值，然后根据元素的坐标为当前岛屿打上id，然后我们预设当前新增岛屿不和周围任何岛屿相连，岛屿数量加1；</li>
+<li>然后找出当前新增岛屿的周围四个元素的状态，如果是岛屿，找出周围岛屿的id，注意每个相连的岛屿都有一个根id，我们需要利用这个根id来更新新增岛屿的id；</li>
+<li>找到周围的元素的根id和当前岛屿的id不一样，那么证明周围还存在不同的岛屿，而且那个岛屿和这个新增岛屿相连，那么把当前岛屿的id更新为周围岛屿的id，然后数量减1；</li>
+<li>遍历周围四个元素，每一个进行相应判断即可；</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">numIslands2</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">int</span>[][] positions)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; ret = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (positions == <span class="keyword">null</span> || positions[<span class="number">0</span>].length == <span class="number">0</span>) <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="keyword">int</span>[] root = <span class="keyword">new</span> <span class="keyword">int</span>[m * n];</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        Arrays.fill(root, -<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span>[] dx = &#123;<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span>[] dy = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] cur : positions) &#123;</span><br><span class="line">            <span class="keyword">int</span> hash = n * cur[<span class="number">0</span>] + cur[<span class="number">1</span>];</span><br><span class="line">            root[hash] = hash;</span><br><span class="line">            count++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">                <span class="keyword">int</span> nextX = cur[<span class="number">0</span>] + dx[i];</span><br><span class="line">                <span class="keyword">int</span> nextY = cur[<span class="number">1</span>] + dy[i];</span><br><span class="line">                <span class="keyword">int</span> prev = n * nextX + nextY;</span><br><span class="line">                <span class="keyword">if</span> (nextX &lt; m &amp;&amp; nextX &gt;= <span class="number">0</span> &amp;&amp; nextY &lt; n &amp;&amp; nextY &gt;= <span class="number">0</span> &amp;&amp; root[prev] != -<span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> tag = findTag(root, prev);</span><br><span class="line">                    <span class="keyword">if</span> (tag != hash) &#123;</span><br><span class="line">                        root[hash] = tag;</span><br><span class="line">                        hash = tag;</span><br><span class="line">                        count--;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ret.add(count);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findTag</span><span class="params">(<span class="keyword">int</span>[] roots, <span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(id != roots[id]) &#123;</span><br><span class="line">            roots[id] = roots[roots[id]];</span><br><span class="line">            id = roots[id];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这才是检查连通性问题，而且是解决动态连通性问题。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/16/Implement-Trie/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Implement Trie
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/16/Binary-Search-Tree-Iterator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Binary Search Tree Iterator</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Number-of-Islands" data-title="Number of Islands I&amp;II" data-url="http://www.smartyi8979.com/2016/03/16/Number-of-Islands/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 一夜花甲
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
 </body>
 </html>

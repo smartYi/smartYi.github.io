@@ -1,16 +1,678 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>一夜花甲</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
   
-    <link rel="icon" href="/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Markdown tutorials Part2 | 一夜花甲</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 前言MarkDown是一种轻量级标记语言，让我们更注重于内容本身，而非format。MarkDown标签数量相对于html来说，极大地减少，但能基本满足我们撰文需求。本教程分为几个部分来介绍MarkDown。本教程将介绍：表格和公式 !">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown tutorials Part2">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/03/15/markdown_tutorial_part2/index.html">
+<meta property="og:site_name" content="一夜花甲">
+<meta property="og:description" content="1. 前言MarkDown是一种轻量级标记语言，让我们更注重于内容本身，而非format。MarkDown标签数量相对于html来说，极大地减少，但能基本满足我们撰文需求。本教程分为几个部分来介绍MarkDown。本教程将介绍：表格和公式 !">
+<meta property="og:updated_time" content="2016-03-16T02:57:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown tutorials Part2">
+<meta name="twitter:description" content="1. 前言MarkDown是一种轻量级标记语言，让我们更注重于内容本身，而非format。MarkDown标签数量相对于html来说，极大地减少，但能基本满足我们撰文需求。本教程分为几个部分来介绍MarkDown。本教程将介绍：表格和公式 !">
+  
+    <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/celtics.jpeg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">一夜花甲</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/life/">生活</a></li>
+				        
+							<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+				        
+							<li><a href="/categories/2015日课/">2015日课</a></li>
+				        
+							<li><a href="/categories/技术/">技术</a></li>
+				        
+							<li><a href="/tags/Leetcode/">Leetcode</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/319Morewood杂记/" style="font-size: 11.25px;">319Morewood杂记</a> <a href="/tags/Backtracking/" style="font-size: 12.5px;">Backtracking</a> <a href="/tags/Google/" style="font-size: 17.5px;">Google</a> <a href="/tags/JSP/" style="font-size: 10px;">JSP</a> <a href="/tags/Leetcode/" style="font-size: 18.75px;">Leetcode</a> <a href="/tags/Markdown/" style="font-size: 11.25px;">Markdown</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/写文/" style="font-size: 10px;">写文</a> <a href="/tags/周记/" style="font-size: 16.25px;">周记</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/感悟/" style="font-size: 13.75px;">感悟</a> <a href="/tags/打油诗/" style="font-size: 12.5px;">打油诗</a> <a href="/tags/教程/" style="font-size: 11.25px;">教程</a> <a href="/tags/敢与高手试比高/" style="font-size: 10px;">敢与高手试比高</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/梦境/" style="font-size: 11.25px;">梦境</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/老文/" style="font-size: 13.75px;">老文</a> <a href="/tags/蝴蝶梦/" style="font-size: 11.25px;">蝴蝶梦</a> <a href="/tags/项目管理/" style="font-size: 10px;">项目管理</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wdxtub.com/">小土刀的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ihozh.com">伊和的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">What hurts more? The pain of hard work or the pain of regret?</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">一夜花甲</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">一夜花甲</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/life/">生活</a></li>
+		        
+					<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+		        
+					<li><a href="/categories/2015日课/">2015日课</a></li>
+		        
+					<li><a href="/categories/技术/">技术</a></li>
+		        
+					<li><a href="/tags/Leetcode/">Leetcode</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-markdown_tutorial_part2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/15/markdown_tutorial_part2/" class="article-date">
+  	<time datetime="2016-03-16T02:39:50.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Markdown tutorials Part2
+    </h1>
   
 
-	
-</head>
-<body>
-	<script type="text/javascript" src="js/blog.js"></script>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- import js for mathjax -->
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<p><div id="preface"></div></p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>MarkDown是一种轻量级标记语言，让我们更注重于内容本身，而非format。MarkDown标签数量相对于html来说，极大地减少，但能基本满足我们撰文需求。本教程分为几个部分来介绍MarkDown。本教程将介绍：<strong><em>表格和公式 !</em></strong><br><a id="more"></a></p>
+<p><div id="form"></div></p>
+<h2 id="2-表格"><a href="#2-表格" class="headerlink" title="2. 表格"></a>2. 表格</h2><h3 id="2-1-表格"><a href="#2-1-表格" class="headerlink" title="2.1 表格"></a>2.1 表格</h3><p>Markdown使用管线图的方式实现表格，表格里面可以使用强调、链接等行内格式。<br>下面代码所示为一个基本的表格：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">教程标题|主要内容</span><br><span class="line">---|---</span><br><span class="line">关于Markdown|markdown简介</span><br><span class="line">markdown基础|Markdown***基本语法***，格式化文本，代码，链接，图片，分割线和转移字符</span><br><span class="line">markdown表格和公式|markdown的***扩展语法***，表格和公式</span><br></pre></td></tr></table></figure>
+<p>在网页表示为：</p>
+<table>
+<thead>
+<tr>
+<th>教程标题</th>
+<th>主要内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关于Markdown</td>
+<td>markdown简介</td>
+</tr>
+<tr>
+<td>markdown基础</td>
+<td>Markdown<strong><em>基本语法</em></strong>，格式化文本，代码，链接，图片，分割线和转移字符</td>
+</tr>
+<tr>
+<td>markdown表格和公式</td>
+<td>markdown的<strong><em>扩展语法</em></strong>，表格和公式</td>
+</tr>
+</tbody>
+</table>
+<p>为了美观，你可以将代码写为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|   教程标题 |   主要内容   |</span><br><span class="line">|-----------|------------|</span><br><span class="line">|关于Markdown|markdown简介|</span><br><span class="line">|markdown基础|Markdown***基本语法***，格式化文本，代码，链接，图片，分割线和转移字符|</span><br><span class="line">|markdown表格和公式|markdown的***扩展语法***，表格和公式|</span><br></pre></td></tr></table></figure>
+<p>效果一样：</p>
+<table>
+<thead>
+<tr>
+<th>教程标题</th>
+<th>主要内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关于Markdown</td>
+<td>markdown简介</td>
+</tr>
+<tr>
+<td>markdown基础</td>
+<td>Markdown<strong><em>基本语法</em></strong>，格式化文本，代码，链接，图片，分割线和转移字符</td>
+</tr>
+<tr>
+<td>markdown表格和公式</td>
+<td>markdown的<strong><em>扩展语法</em></strong>，表格和公式</td>
+</tr>
+</tbody>
+</table>
+<p><div id="align"></div></p>
+<h3 id="2-2-表格对齐方式"><a href="#2-2-表格对齐方式" class="headerlink" title="2.2 表格对齐方式"></a>2.2 表格对齐方式</h3><p>注意，我们同时可以指定表格单元格的对齐方式，如下面代码所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| Day     | Meal     | Price   |</span><br><span class="line">|:--------|---------:|:-------:|</span><br><span class="line">| Monday  | pasta    | $6      |</span><br><span class="line">| Tuesday | chicken  | $8      |</span><br></pre></td></tr></table></figure>
+<p>在网页表示为：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Day</th>
+<th style="text-align:right">Meal</th>
+<th style="text-align:center">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Monday</td>
+<td style="text-align:right">pasta</td>
+<td style="text-align:center">$6</td>
+</tr>
+<tr>
+<td style="text-align:left">Tuesday</td>
+<td style="text-align:right">chicken</td>
+<td style="text-align:center">$8</td>
+</tr>
+</tbody>
+</table>
+<p>上面例子分别表示了左对齐，右对齐和两端对齐。</p>
+<p><div id="formula"></div></p>
+<h2 id="3-公式"><a href="#3-公式" class="headerlink" title="3. 公式"></a>3. 公式</h2><p>通过使用MathJax，我们可以让Markdown解析LaTeX数学表达式，通常情况下，我们需要引入MathJax插件才可能工作。<br>引入插件的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML&quot;&gt;&lt;/script&gt;(最前面的backslash用来转义)</span><br></pre></td></tr></table></figure>
+<p><div id="line formula"></div></p>
+<h3 id="3-1-行内公式"><a href="#3-1-行内公式" class="headerlink" title="3.1 行内公式"></a>3.1 行内公式</h3><p>我们使用<code>\\(公式\\)</code>的方式来包含行内公式，例如:  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一个简单的数学公式，求出圆的面积： \\(s=\\pi r^2\\)</span><br><span class="line">注意：行内公式的语法为： \\(公式\\),在Tex中是\(公式\),但是在markdown中，backslash是转义字符，所以用double backslash来表示backslash。</span><br></pre></td></tr></table></figure>
+<p>在网页显示为：<br>一个简单的数学公式，求出圆的面积： \(s=\pi r^2\)</p>
+<p><div id="display formula"></div></p>
+<h3 id="3-2-陈列公式-行间公式"><a href="#3-2-陈列公式-行间公式" class="headerlink" title="3.2 陈列公式(行间公式)"></a>3.2 陈列公式(行间公式)</h3><p>我们使用<code>$$...$$</code>来表示行间公式。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同样的是求出圆的面积： $$s= \pi r^2$$</span><br></pre></td></tr></table></figure>
+<p>在网页表示为：<br>$$s= \pi r^2$$</p>
+<p><div id="mathjax"></div></p>
+<h3 id="3-3-MathJex语法"><a href="#3-3-MathJex语法" class="headerlink" title="3.3 MathJex语法"></a>3.3 MathJex语法</h3><p>1.利用\alpha、\beta、\gamma表示希腊字母α、β、γ， 使用\Gamma表示大写希腊字母Γ等，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>字母</th>
+<th>实现</th>
+<th>字母</th>
+<th>实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(A\)</td>
+<td><code>A</code></td>
+<td>\(\alpha\)</td>
+<td><code>\alpha</code></td>
+</tr>
+<tr>
+<td>\(B\)</td>
+<td><code>B</code></td>
+<td>\(\beta\)</td>
+<td><code>\bata</code></td>
+</tr>
+<tr>
+<td>\(\Gamma\)</td>
+<td><code>\Gamma</code></td>
+<td>\(\gamma\)</td>
+<td><code>\gamma</code></td>
+</tr>
+<tr>
+<td>\(\Delta\)</td>
+<td><code>\Delta</code></td>
+<td>\(\delta\)</td>
+<td><code>\delta</code></td>
+</tr>
+<tr>
+<td>\(E\)</td>
+<td><code>E</code></td>
+<td>\(\epsilon\)</td>
+<td><code>\epsilon</code></td>
+</tr>
+<tr>
+<td>\(Z\)</td>
+<td><code>Z</code></td>
+<td>\(\zeta\)</td>
+<td><code>\zeta</code></td>
+</tr>
+<tr>
+<td>\(H\)</td>
+<td><code>H</code></td>
+<td>\(\eta\)</td>
+<td><code>\eta</code></td>
+</tr>
+<tr>
+<td>\(\Theta\)</td>
+<td><code>\Theta</code></td>
+<td>\(\theta\)</td>
+<td><code>\theta</code></td>
+</tr>
+<tr>
+<td>\(I\)</td>
+<td><code>I</code></td>
+<td>\(\iota\)</td>
+<td><code>\iota</code></td>
+</tr>
+<tr>
+<td>\(K\)</td>
+<td><code>K</code></td>
+<td>\(\kappa\)</td>
+<td><code>\kappa</code></td>
+</tr>
+<tr>
+<td>\(\Lambda\)</td>
+<td><code>\Lambda</code></td>
+<td>\(\lambda\)</td>
+<td><code>\lambda</code></td>
+</tr>
+<tr>
+<td>\(M\)</td>
+<td><code>M</code></td>
+<td>\(\mu\)</td>
+<td><code>\mu</code></td>
+</tr>
+<tr>
+<td>\(N\)</td>
+<td><code>N</code></td>
+<td>\(\nu\)</td>
+<td><code>\nu</code></td>
+</tr>
+<tr>
+<td>\(\Xi\)</td>
+<td><code>\Xi</code></td>
+<td>\(\xi\)</td>
+<td><code>\xi</code></td>
+</tr>
+<tr>
+<td>\(O\)</td>
+<td><code>O</code></td>
+<td>\(\omicron\)</td>
+<td><code>\omicron</code></td>
+</tr>
+<tr>
+<td>\(\Pi\)</td>
+<td><code>\Pi</code></td>
+<td>\(\pi\)</td>
+<td><code>\pi</code></td>
+</tr>
+<tr>
+<td>\(P\)</td>
+<td><code>P</code></td>
+<td>\(\rho\)</td>
+<td><code>\rho</code></td>
+</tr>
+<tr>
+<td>\(\Sigma\)</td>
+<td><code>\Sigma</code></td>
+<td>\(\sigma\)</td>
+<td><code>\sigma</code></td>
+</tr>
+<tr>
+<td>\(T\)</td>
+<td><code>T</code></td>
+<td>\(\tau\)</td>
+<td><code>\tau</code></td>
+</tr>
+<tr>
+<td>\(\Upsilon\)</td>
+<td><code>\Upsilon</code></td>
+<td>\(\upsilon\)</td>
+<td><code>\upsilon</code></td>
+</tr>
+<tr>
+<td>\(\Phi\)</td>
+<td><code>\Phi</code></td>
+<td>\(\phi\)</td>
+<td><code>\phi</code></td>
+</tr>
+<tr>
+<td>\(X\)</td>
+<td><code>X</code></td>
+<td>\(\chi\)</td>
+<td><code>\chi</code></td>
+</tr>
+<tr>
+<td>\(\Psi\)</td>
+<td><code>\Psi</code></td>
+<td>\(\psi\)</td>
+<td><code>\psi</code></td>
+</tr>
+<tr>
+<td>\(\Omega\)</td>
+<td><code>\Omega</code></td>
+<td>\(\omega\)</td>
+<td><code>\omega</code></td>
+</tr>
+</tbody>
+</table>
+<p>2.利用{}实现优先级。</p>
+<p>例如<code>\\(x\_i^2\\)</code>实现\(x_i^2\)，而<code>\\(x\_{i^2}\\)</code>实现\(x_{i^2}\)。<br>例如<code>\\(lim\_{x\to\infty}\\)</code>实现\(lim_{x\to\infty}\)。  </p>
+<p>3.常用数学运算符表示如下。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">说明</th>
+<th style="text-align:center">案例</th>
+<th style="text-align:center">案例实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">加</td>
+<td style="text-align:center">\(x + y\)</td>
+<td style="text-align:center"><code>\\(x + y\\)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Part2-结束。"><a href="#Part2-结束。" class="headerlink" title="Part2 结束。"></a>Part2 结束。</h2>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/15/markdown_tutorial_part1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Markdown tutorials Part1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/15/Longest Substring-with-At-Most-Two-Distinct-Characters/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Longest Substring with At Most Two Distinct Characters</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="markdown_tutorial_part2" data-title="Markdown tutorials Part2" data-url="http://www.smartyi8979.com/2016/03/15/markdown_tutorial_part2/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 一夜花甲
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
 </body>
 </html>

@@ -1,16 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>一夜花甲</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
   
-    <link rel="icon" href="/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JSP详解 | 一夜花甲</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1. 什么是JSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSP详解">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/09/18/JSP详解/index.html">
+<meta property="og:site_name" content="一夜花甲">
+<meta property="og:description" content="1. 什么是JSP">
+<meta property="og:updated_time" content="2016-09-25T23:08:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSP详解">
+<meta name="twitter:description" content="1. 什么是JSP">
+  
+    <link rel="alternative" href="/atom.xml" title="一夜花甲" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/celtics.jpeg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">一夜花甲</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/life/">生活</a></li>
+				        
+							<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+				        
+							<li><a href="/categories/2015日课/">2015日课</a></li>
+				        
+							<li><a href="/categories/技术/">技术</a></li>
+				        
+							<li><a href="/tags/Leetcode/">Leetcode</a></li>
+				        
+							<li><a href="/archives">归档</a></li>
+				        
+							<li><a href="/about">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/319Morewood杂记/" style="font-size: 11.25px;">319Morewood杂记</a> <a href="/tags/Backtracking/" style="font-size: 12.5px;">Backtracking</a> <a href="/tags/Google/" style="font-size: 17.5px;">Google</a> <a href="/tags/JSP/" style="font-size: 10px;">JSP</a> <a href="/tags/Leetcode/" style="font-size: 18.75px;">Leetcode</a> <a href="/tags/Markdown/" style="font-size: 11.25px;">Markdown</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/写文/" style="font-size: 10px;">写文</a> <a href="/tags/周记/" style="font-size: 16.25px;">周记</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/感悟/" style="font-size: 13.75px;">感悟</a> <a href="/tags/打油诗/" style="font-size: 12.5px;">打油诗</a> <a href="/tags/教程/" style="font-size: 11.25px;">教程</a> <a href="/tags/敢与高手试比高/" style="font-size: 10px;">敢与高手试比高</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/梦境/" style="font-size: 11.25px;">梦境</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/算法/" style="font-size: 20px;">算法</a> <a href="/tags/老文/" style="font-size: 13.75px;">老文</a> <a href="/tags/蝴蝶梦/" style="font-size: 11.25px;">蝴蝶梦</a> <a href="/tags/项目管理/" style="font-size: 10px;">项目管理</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wdxtub.com/">小土刀的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ihozh.com">伊和的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">What hurts more? The pain of hard work or the pain of regret?</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">一夜花甲</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/celtics.jpeg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">一夜花甲</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">太上有立德，其次有立功，其次有立言</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/life/">生活</a></li>
+		        
+					<li><a href="/categories/以为感悟生活/">以为感悟生活</a></li>
+		        
+					<li><a href="/categories/2015日课/">2015日课</a></li>
+		        
+					<li><a href="/categories/技术/">技术</a></li>
+		        
+					<li><a href="/tags/Leetcode/">Leetcode</a></li>
+		        
+					<li><a href="/archives">归档</a></li>
+		        
+					<li><a href="/about">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/smartYi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/1766880804/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com" title="zhihu">zhihu</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com" title="facebook">facebook</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-JSP详解" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/18/JSP详解/" class="article-date">
+  	<time datetime="2016-09-19T06:13:45.000Z" itemprop="datePublished">2016-09-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSP详解
+    </h1>
   
 
-	
-</head>
-<body>
-	<script type="text/javascript" src="js/blog.js"></script>
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSP/">JSP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Servlet/">Servlet</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/ssh开发从入门到出家/">ssh开发从入门到出家</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-什么是JSP"><a href="#1-什么是JSP" class="headerlink" title="1. 什么是JSP"></a>1. 什么是JSP</h3><a id="more"></a>
+<p>JSP(Java Server Page)是一种在HTML页面中掺杂java语句从而能够动态生成HTML页面的一种技术。JSP的出现改善了在servlet中利用java对象输出大量难读，难写的html标签的情况，从而使得servlet专注于控制器层，而JSP等其他相关技术专注于表现层，进一步确立了web  开发过程中MVC模式。  </p>
+<p>JSP的本质依然是一个servlet，当我们编写一个jsp文件之后，客户发起一个请求，这个请求通过servlet转到某个jsp文件，这时候web容器会对当前的jsp文件进行编译，当编译成servlet文件之后，才会执行。因此往往每个jsp文件的第一个访问者，会发现速度很慢，因为jsp文件还未被容器编译成servlet文件。  </p>
+<p>如果开发者是在本地进行的开发，容器用的是Tomcat，可以在Tomcat的work文件夹相对应的web名称下找到容器编译后生成的servlet文件。这也说明了jsp其实是servlet的草稿，它简化了servlet的功能，使得servlet专注控制器部分，而真正运行的是servlet。</p>
+<h3 id="2-JSP的使用"><a href="#2-JSP的使用" class="headerlink" title="2. JSP的使用"></a>2. JSP的使用</h3><p>前面我们说过，jsp是往静态的html语言中插入动态的java语句，从而实现页面的动态输出。那么如何在html语句中实现java语句呢？</p>
+<h4 id="2-1-JSP的四种基本语法"><a href="#2-1-JSP的四种基本语法" class="headerlink" title="2.1 JSP的四种基本语法"></a>2.1 JSP的四种基本语法</h4><p>jsp常用的四种语法分别是：注释，声明，表达式和脚本。</p>
+<ol>
+<li>注释<br>jsp注释语法的格式是：<strong>&lt;%– 这里是注释 –%&gt;</strong><br>jsp的注释内容仅仅提供开发过程的提示作用，最后面输出到客户端的html代码中是无法看见jsp注释的。这有别于html代码的注释，html的注释是可以在客户端的源码。</li>
+<li>声明<br>jsp声明的语法格式是:<strong>&lt;%! 这里是声明内容 %&gt;</strong><br>之前提到，jsp会在运行的时候由容器编译成servlet文件，而servlet是一个java 对象，因此在jsp中进java变量或者方法的声明和在servlet中的声明是一样的。容器会在编译的时候将jsp中声明的变量和方法编译到对应的servlet中去，且接受private，public，static等修饰符，但不接受abstract修饰，一旦被abstract修饰，编译生成的servlet将会成为抽象类，无法被实例化。值得注意的是，容易编译servlet时，每个servlet在容器中只存在一个实例。</li>
+<li>表达式<br>jsp输出表达式的语法格式：<strong>&lt;%=表达式(注意jsp表达式后面无需添加分号表示结束)%&gt;</strong><br>jsp中的表达式语句在对应的servlet中将会编译为out.print()语句。因此起到的作用就是简化jsp的输出语法。</li>
+<li>脚本<br>jsp脚本的语法格式是：<strong>&lt;% 这里是java程序 %&gt;</strong><br>嵌套在<strong>&lt;% %&gt;</strong>中的java代码就是jsp中的java脚本，<strong><em>jsp中的java脚本将会被容器编译成Service()方法中的可执行代码，因此对于jsp脚本来说，不能在其中定义方法，因为在java中我们不允许在方法中定义方法。</em></strong></li>
+</ol>
+<p>以上四种就是jsp的四种基本语法，理解这四种基本语法在于理解他们分别在jsp编译成的servlet中起到什么作用，与我们以往学习的知识进行连接，才不会出错。</p>
+<h4 id="2-2-JSP的三大基本编译指令"><a href="#2-2-JSP的三大基本编译指令" class="headerlink" title="2.2 JSP的三大基本编译指令"></a>2.2 JSP的三大基本编译指令</h4><p>jsp的编译指令不直接生成输出，这些编译指令会通知jsp引擎或者servlet引擎对当前的jsp文件在进行编译的过程中起作用。常用的编译指令有：page， include和taglib。  </p>
+<ol>
+<li>page： 指定的编译指令是针对当前页面</li>
+<li>include： 用于指定当前页面包含另一个页面，通常是静态包含</li>
+<li>taglib： 用于定义和访问自定义的标签</li>
+</ol>
+<p>在jsp中插入编译指令的语法是： <strong>&lt;%@ 编译指令名 属性名1=“属性值1” 属性名2=“属性值2” …%&gt;</strong>注意，各属性定义之间不要用符号分隔开。</p>
+<h5 id="2-2-1-page编译指令"><a href="#2-2-1-page编译指令" class="headerlink" title="2.2.1 page编译指令"></a>2.2.1 page编译指令</h5><p>page常用的属性有：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>language</td>
+<td>声明当前页面脚本的语言，默认为java</td>
+</tr>
+<tr>
+<td>extends</td>
+<td>指定jsp编译成servlet之后所需要继承的类，或者所实现的接口</td>
+</tr>
+<tr>
+<td>import</td>
+<td>常用的，用于导入当前脚本中可能使用到的其他包里面的类</td>
+</tr>
+<tr>
+<td>info</td>
+<td>包含jsp的信息，一般作为当前jsp文件的说明用。可以通过getServletInfo()来获取</td>
+</tr>
+<tr>
+<td>errorPage</td>
+<td>常用。指定当前jsp文件发生错误时，自动调用改属性值指定的jsp文件。如果不指定当前属性值，当发生错误时，会抛出异常信息给客户。</td>
+</tr>
+<tr>
+<td>contentType</td>
+<td>指定生成网页的文件格式和编码字符集</td>
+</tr>
+<tr>
+<td>isErrorPage</td>
+<td>用于指定当前jsp文件是否为错误处理jsp文件</td>
+</tr>
+</tbody>
+</table>
+<p>一个常见的jsp编译指令的使用可能是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--指定脚本语言是java，指定生成网页的文件格式和编码字符集--%&gt;</span><br><span class="line">&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=GBK&quot; %&gt;</span><br><span class="line">&lt;%--指定导入的包的位置--%&gt;</span><br><span class="line">&lt;%@ page import=&quot;java.package.*&quot; %&gt;</span><br><span class="line">&lt;%--指定当前jsp文件发生错误时，处理错误的jsp文件--%&gt;</span><br><span class="line">&lt;%@ page errorPage=&quot;error.jsp&quot; %&gt;</span><br><span class="line">&lt;%--说明当前jsp文件不是用来处理错的jsp文件--%&gt;</span><br><span class="line">&lt;%@ page isErrorPage=&quot;false&quot;%&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-2-include编译指令"><a href="#2-2-2-include编译指令" class="headerlink" title="2.2.2 include编译指令"></a>2.2.2 include编译指令</h5><p>include编译指令，可以将一个外部文件静态导入到当前的jsp文件当中，使得当前jsp文件在生成servlet后会嵌入外部文件所生成的代码。include指令可以包含一个静态的文本，也可以导入动态的jsp文件。注意，这里说的静态导入和动态jsp文件不是指的一回事，导入动态jsp文件并不意味着动态导入，而依然是静态导入。指令格式如下：<br><strong>&lt;%@ include file=”xxx.txt”%&gt;</strong>或者<strong>&lt;%@ include file=”xxx.jsp”%&gt;</strong><br>jsp的include静态导入对象如果是一个jsp文件的话，静态导入的结果还会把目标jsp文件的编译指令导入进来，因此如果两个jsp文件的编译指令发生冲突，那么在容器生成servlet的过程中就会发生错误。</p>
+<h5 id="2-2-3-taglib编译指令"><a href="#2-2-3-taglib编译指令" class="headerlink" title="2.2.3 taglib编译指令"></a>2.2.3 taglib编译指令</h5><p>taglib的编译指令作用由名字也可以知道，就是导入一个标签库，指定标签库的uri以及在当前jsp中使用该标签库中标签的prefix（前缀），就可以完成标签库的导入了。语法如下：<br>&lt;%@ taglib uri=”xxx/yyy/zzz” prefix=”myTag” %&gt;<br>使用导入标签库的方式：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;myTag:tagName/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-JSP的三大动作指令"><a href="#2-3-JSP的三大动作指令" class="headerlink" title="2.3 JSP的三大动作指令"></a>2.3 JSP的三大动作指令</h4><p>jsp的动作指令有区别于编译指令，编译指令是jsp在通知容器进行编译的过程中起作用的，而动作指令则是在编译之后运行过程中起作用的。常见的jsp的动作指令有：</p>
+<ol>
+<li><p>jsp:forward<br> forward动作指令是将当前页面的响应转到一个新的页面，这个新的页面会继续相应。<strong>注意：forward指令并不会生成一次新的请求request，这也就是说请求参数不会丢失，在新的页面中还是能够通过request.getParameter()方法获取参数值。</strong>除此之外，在转向新的页面之前，还可以通过jsp:param指令向request中添加额外参数。其完整使用语法如下：</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page="URL|&lt;%=expression%&gt;"&gt;  </span><br><span class="line">	&lt;jsp:param name="" value="" /&gt;  </span><br><span class="line">&lt;/jsp:forward&gt;</span><br></pre></td></tr></table></figure>
+<p> 转到的目标page不仅可以是相对路径下的合法url，还可以是jsp的表达式输出。</p>
+</li>
+<li><p>jsp:include<br>  include动作指令和编译指令中的include指令作用相似，都是用于导入某个jsp文件。但include动作指令是一个动态导入指令，不同于静态include导入指令，区别在于：</p>
+<ol>
+<li>动态导入指令只会导入被导入文件的主体body部分，其余部分不会导入，也就是说编译指令不会被导入，而静态在导入也会一并把编译指令导入；</li>
+<li>动态导入指令并不是真正将被导入文件内容插入到自身，而是调用编译后的servlet中的include方法将被导入文件的主体body部分导入进来，而静态指令是两者合二为一生成一个servlet；</li>
+<li><p>动态导入还可以利用jsp的param动作指令为被导入文件添加而外的参数；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jsp的include指令的语法如下：</span><br><span class="line">&lt;jsp:include page="&#123;url|&lt;%=expression%&gt;&#125;"&gt;</span><br><span class="line">	&lt;jsp:param name="" value="" /&gt;</span><br><span class="line">&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>jsp:param<br> jsp的param指令在之前的两个动作指令中已经有涉及，不会单独使用，一般都是搭配以上两个指令一起使用。用于添加额外的参数。当和forward指令搭配时，往转入目标页面添加参数；当与include搭配时。往被导入页面添加参数。</p>
+</li>
+</ol>
+<h4 id="2-4-JSP的九大内置对象"><a href="#2-4-JSP的九大内置对象" class="headerlink" title="2.4 JSP的九大内置对象"></a>2.4 JSP的九大内置对象</h4><p>jsp总共包含9个内置对象。内置对象意味着在jsp中你可以不要通过声明，就可以直接在jsp的脚本中进行使用。<strong>记得jsp是servlet的草稿文件，因此jsp往往会编译成servlet之后才会运行，而这9个内置对象要么就是编译后生成servlet的形参，要么就是servlet中service()方法的局部变量，因此在jsp的脚本中可以直接使用。</strong>这9个内置对象是：</p>
+<table>
+<thead>
+<tr>
+<th>对象名</th>
+<th>对象作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>application</td>
+<td>代表当前整个web本身，存放在application中的数据可以供所有的servlet和jsp共享，无论哪次请求，无论哪次会话都有效。</td>
+</tr>
+<tr>
+<td>config</td>
+<td>config代表jsp配置信息的实例。一般来说，jsp中的该对象用的比较少，在servlet中用到config比较多，但是因为servlet中没有内置对象，因此要通过getServletConfig()方法来获取当前servlet的config实例对象。</td>
+</tr>
+<tr>
+<td>exception</td>
+<td>当当前的jsp页面是错误处理页面时，也就是isError属性设为true时，exception对象才会被实例化。常用于输出错误信息和错误栈</td>
+</tr>
+<tr>
+<td>out</td>
+<td>对应了servlet中的输出流对象，常常用于输出变量值和常亮。在之前我们提到过jsp的表达式输出，表达式输出的实质就是out对象的输出过程，因此在jsp中能够使用表达式输出的地方都能用到out对象来输出，但表达式输出更加的简洁。</td>
+</tr>
+<tr>
+<td>page</td>
+<td>代表页面本身</td>
+</tr>
+<tr>
+<td>pageContext</td>
+<td>代表页面上下文。注意页面上下文和页面本身不同。页面上下文可以用于页面之间的数据共享。通过这个对象可以获取page，request，session，application对象；还可以为参数设置的scope，从而使得参数可以在不同的scope之间共享。但一般page，request，session，application四个对象在jsp中已经内置，因此往往是在servlet中才会使用pageContext来获取我们想要的对象。</td>
+</tr>
+<tr>
+<td>request</td>
+<td>代表当前请求。客户端的所有请求信息都被封装在这个对象当中，这也是我们最经常使用的一个对象。</td>
+</tr>
+<tr>
+<td>response</td>
+<td>代表服务器对客户端请求的响应，一般响应分为输出流和重定向。在servlet中输出流通过response获取上面的out对象进行输出，重定向表示生成新的request向一个新的页面发出请求</td>
+</tr>
+<tr>
+<td>session</td>
+<td>代表一次会话。当客户端浏览器与站点连接，会话建立；客户端关闭浏览器，会话结束。</td>
+</tr>
+</tbody>
+</table>
+<p>除此之外，在web开发过程中，还有一个重要的概念是cookie。因为当客户端断开与服务器的连接时，会话就会结束，当前会话的所有信息就被丢失。如果我们想保存某些信息，可以利用cookie将相关信息保存到我们的机器上，直到cookie失效。往客户端机器添加cookie也是response内置对象的责任。可以通过response.addCookie()的方法来添加cookie。cookie的使用很简单，利用即将存储的信息实例化一个cookie对象，<strong>一定记得设置cookie的失效时间，否则cookie会默认会话结束，cookie实效</strong>，最后由response对象添加即可。那么如何获得当前客户端机器的cookie呢，这就是request对象的任务了，通过getCookies()对象就可以获取当前客户端机器的所有cookie了。</p>
+<h3 id="3-开发自己的JSP标签库"><a href="#3-开发自己的JSP标签库" class="headerlink" title="3. 开发自己的JSP标签库"></a>3. 开发自己的JSP标签库</h3><p>在上面我们提到过jsp中可以插入java脚本来完成一些逻辑功能，但事实上jsp只是表现层技术，我们尽可能的不要再jsp中完成逻辑的实现。但有时候从servlet返回的结果比较复杂，需要我们在jsp中进行一些处理才能输出，这种情况下完成一些逻辑的视线不可避免。但我们仍然可以避免，jsp的自定义标签技术，可以用一种近似于html的标签格式来隐式的完成一些逻辑操作。自定义的jsp标签库分为三部分：</p>
+<ol>
+<li>建立标签处理类(一个标签对应于一个标签处理类)；</li>
+<li>为标签库处理类建立tld文件；</li>
+<li>在jsp中导入标签库并使用；</li>
+</ol>
+<h4 id="3-1-建立标签处理类"><a href="#3-1-建立标签处理类" class="headerlink" title="3.1 建立标签处理类"></a>3.1 建立标签处理类</h4><p>创立标签处理类的步骤实在简单，定义一个普通的java class文件，使其继承(extends)SimpleTagSupport超类就定义了一个标签处理类，重写doTag()方法，在其中实现你想要的逻辑。<strong>值得注意的是，如果你定义的标签需要任何的属性，必须在处理类中为每一个属性添加getter和setter方法，当然你可以通过通过lombok来隐式生成。</strong></p>
+<h4 id="3-2-创建tld文件"><a href="#3-2-创建tld文件" class="headerlink" title="3.2 创建tld文件"></a>3.2 创建tld文件</h4><p>在WEB-INF文件夹下，建立一个以tld为后缀的文件。但其实tld文件是一个标准的xml文件。<strong>根元素是<taglib>，其代表的是一个标签库，一个标签库包含众多标签,它的子元素是<tag>，每一个<tag>代表一个当前标签库下的一个标签，也对应于一个标签处理类。当然对于每一个标签，还有一些它自己的子元素。</tag></tag></taglib></strong>来看一个一般的tld文件的格式：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="GBK" ?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">taglib</span> <span class="attr">xmlns</span>=<span class="string">""</span></span><br><span class="line">		<span class="attr">xmlns</span>=<span class="string">""</span></span><br><span class="line">		<span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">tlib-version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">tlib-version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">short-name</span>&gt;</span>mytaglib<span class="tag">&lt;/<span class="name">short-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">uri</span>&gt;</span>xxx/yyy/zzz<span class="tag">&lt;/<span class="name">uri</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tag</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">name</span>&gt;</span>tagName<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tag-class</span>&gt;</span>package.TagClass<span class="tag">&lt;/<span class="name">tag-class</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">body-content</span>&gt;</span>empty|scriptless|tagdependent<span class="tag">&lt;/<span class="name">bodycontent</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">dynamic-attributes</span>&gt;</span>true|false<span class="tag">&lt;/<span class="name">dynamic-attributes</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tag</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tag</span>&gt;</span></span><br><span class="line">			...</span><br><span class="line">		<span class="tag">&lt;/<span class="name">tag</span>&gt;</span></span><br><span class="line">		...</span><br><span class="line"><span class="tag">&lt;/<span class="name">taglib</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在上述定义中，重要的是<strong>uri</strong>元素和<strong>tag</strong>元素。uri统一资源定位符，在jsp中使用自定义开发的标签库时就是通过这个参数来进行唯一定位，<strong>因此绝对重要且必须唯一</strong>；tag元素就是定义标签库中的一个标签。</p>
+<h5 id="3-2-1-开发带属性的标签"><a href="#3-2-1-开发带属性的标签" class="headerlink" title="3.2.1 开发带属性的标签"></a>3.2.1 开发带属性的标签</h5><p>什么是标签的属性，当我们使用标签的时候，随着标签一起输入的那些参数就叫做标签的属性。例如：<br><figure class="highlight plain"><figcaption><span>type="submit" value="Submit"</span><a href="/>```其中的**type**和**value**就是属性。那么如何为自定义的标签定义属性呢？由于自定义的标签是由标签处理类来进行处理的，那么当然在标签处理类中必须要有这些属性且实现这些属性的setter和getter方法。">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```java</span><br><span class="line">class Person extends SimpleTagSupport &#123;</span><br><span class="line">	String name;</span><br><span class="line">	String gender;</span><br><span class="line">	@setter</span><br><span class="line">	...</span><br><span class="line">	@getter</span><br><span class="line">	...</span><br><span class="line">	@override</span><br><span class="line">	public void doTag() throws JspException, IOException &#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在tld文件中定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;tag&gt;</span><br><span class="line">	&lt;name&gt;person&lt;/name&gt;</span><br><span class="line">	&lt;tag-class&gt;xxx.Person&lt;/tag-class&gt;</span><br><span class="line">	&lt;tag-content&gt;empty&lt;/tag-content&gt;</span><br><span class="line">	&lt;attribute&gt;</span><br><span class="line">		&lt;name&gt;name&lt;/name&gt;</span><br><span class="line">		&lt;required&gt;true&lt;/required&gt;</span><br><span class="line">		&lt;fragment&gt;true&lt;/fragment&gt;</span><br><span class="line">	&lt;/attribute&gt;</span><br><span class="line">	&lt;attribute&gt;</span><br><span class="line">		&lt;name&gt;gender&lt;/name&gt;</span><br><span class="line">		&lt;required&gt;true&lt;/required&gt;</span><br><span class="line">		&lt;fragment&gt;true&lt;/fragment&gt;</span><br><span class="line">	&lt;/attribute&gt;	</span><br><span class="line">&lt;/tag&gt;</span><br></pre></td></tr></table></figure>
+<p>然后就可以在jsp中导入使用了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;myTag:person name=&quot;xxx&quot; gender=&quot;male&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="3-2-2-开发动态属性的标签"><a href="#3-2-2-开发动态属性的标签" class="headerlink" title="3.2.2 开发动态属性的标签"></a>3.2.2 开发动态属性的标签</h5><p>上面我们开发属性时，必须确切知道什么属性以及多少个。但如果标签的属性个数以及名字未知，我们便不好处理，这种情况下必须利用动态属性来进行开发。开发动态属性标签，除了继承SimpleTagSupport之外，还需要实现一个接口，DynamicAttributes，实现其中的setDynamicAttribute()方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">SimpleTagSupport</span> <span class="keyword">implements</span> <span class="title">DynamicAttributes</span> </span>&#123;</span><br><span class="line">	<span class="comment">//保存每个属性的名字</span></span><br><span class="line">	<span class="keyword">private</span> ArrayList&lt;String&gt; keys = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">	<span class="comment">//保存每个属性的属性值</span></span><br><span class="line">	<span class="keyword">private</span> ArrayList&lt;Object&gt; values = <span class="keyword">new</span> ArrayList&lt;Object&gt;();</span><br><span class="line">	<span class="meta">@override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doTag</span><span class="params">()</span> <span class="keyword">throws</span> JspException, IOException </span>&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDynamicAttributes</span> <span class="params">(String uri, String localName, String value)</span> <span class="keyword">throws</span> JspException </span>&#123;</span><br><span class="line">		keys.add(localName);</span><br><span class="line">		values.add(value);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在tld的tag定义中，记得将<code>&lt;dynamic-attributes&gt;true&lt;/dynamic-attributes&gt;</code></p>
+<h4 id="3-3-在jsp中使用自定义标签"><a href="#3-3-在jsp中使用自定义标签" class="headerlink" title="3.3 在jsp中使用自定义标签"></a>3.3 在jsp中使用自定义标签</h4><p>如何在jsp中使用自定义标签库，我们在编译指令中已经说明。利用taglib编译指令以及uri进行标签库导入，为导入标签库创造一个prefix前缀，这样就可以在当前jsp中使用标签库中的标签了。具体使用看编译指令的taglib用法。  </p>
+<p>JSP作为J2EE的两个基本组件之一(另一个是servlet)，使用起来比较简单，语法也比较简单。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/24/第七夜/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          第七夜
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/16/第六夜/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第六夜</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JSP详解" data-title="JSP详解" data-url="http://www.smartyi8979.com/2016/09/18/JSP详解/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 一夜花甲
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
 </body>
 </html>
