@@ -1,0 +1,734 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="项目管理," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="一夜花甲" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="1. 什么是Ant在C和C++项目中，我们通常是利用Make工具来进行项目的编译和生成，相应的，对于Java项目来说，我们可以利用Ant工具来进行项目的编译，管理和生成。利用Ant工具来管理项目优点有：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动构建工具Ant">
+<meta property="og:url" content="http://www.smartyi8979.com/2016/09/06/自动构建工具Ant/index.html">
+<meta property="og:site_name" content="一夜花甲">
+<meta property="og:description" content="1. 什么是Ant在C和C++项目中，我们通常是利用Make工具来进行项目的编译和生成，相应的，对于Java项目来说，我们可以利用Ant工具来进行项目的编译，管理和生成。利用Ant工具来管理项目优点有：">
+<meta property="og:updated_time" content="2016-09-07T06:24:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自动构建工具Ant">
+<meta name="twitter:description" content="1. 什么是Ant在C和C++项目中，我们通常是利用Make工具来进行项目的编译和生成，相应的，对于Java项目来说，我们可以利用Ant工具来进行项目的编译，管理和生成。利用Ant工具来管理项目优点有：">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://www.smartyi8979.com/2016/09/06/自动构建工具Ant/"/>
+
+
+  <title> 自动构建工具Ant | 一夜花甲 </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一夜花甲</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">太上有立德，其次有立功，其次有立言</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            日程
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                自动构建工具Ant
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T07:54:27+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ssh开发从入门到出家/" itemprop="url" rel="index">
+                    <span itemprop="name">ssh开发从入门到出家</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/06/自动构建工具Ant/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/06/自动构建工具Ant/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-什么是Ant"><a href="#1-什么是Ant" class="headerlink" title="1. 什么是Ant"></a>1. 什么是Ant</h3><p>在C和C++项目中，我们通常是利用Make工具来进行项目的编译和生成，相应的，对于Java项目来说，我们可以利用Ant工具来进行项目的编译，管理和生成。利用Ant工具来管理项目优点有：<br><a id="more"></a></p>
+<ul>
+<li>Ant工具是基于Java语言的生成工具，而我们都知道Java语言由于具有JVM，因此具有良好的跨平台行，所以Ant工具也有很好的跨平台性；</li>
+<li>Ant工具的生成文件是XML文件，简单，易用</li>
+</ul>
+<p>在电脑上安装Ant非常简单，下载Ant工具安装包，将文件夹中的bin文件夹路径添加到系统路径当中，这样我们就可以使用ant工具了。</p>
+<h3 id="2-Ant的常用命令"><a href="#2-Ant的常用命令" class="headerlink" title="2. Ant的常用命令"></a>2. Ant的常用命令</h3><p>当我们把Ant安装到电脑中之后，我们就可以使用ant工具了。在终端输入ant -help就会显示出ant的各种命令使用方法和相关信息。这里简要介绍几条常用命令。</p>
+<ul>
+<li>ant: 不指定任何参数的命令ant会在当前目录下寻找默认生成文件，也就是build.xml文件，如果没找到显示build.xml file doesn’t exist.</li>
+<li>ant -find or ant -s: 这个命令会从当前路径下开始，一直往上层路径寻找生成文件，直到文件系统根目录，当然寻找的也是build.xml文件；</li>
+<li>ant -f fileName or ant -file filaName: 这个命令是不用默认的生成文件来编译项目，而是指定其他的生成文件；</li>
+<li>ant -D<property>=<value>: 这个命令则是覆盖生成文件property的value；同样的也可以往生成文件中传入某个属性的值，从而在生成文件中可以使用该属性的值； </value></property></li>
+</ul>
+<h3 id="3-Ant的生成文件"><a href="#3-Ant的生成文件" class="headerlink" title="3. Ant的生成文件"></a>3. Ant的生成文件</h3><p>Ant工具的目的是什么，管理编译生成项目，那么理所当然项目的生成文件就是Ant工具的核心，重中之重。</p>
+<p>在Ant工具中，默认的生成文件名是build.xml文件，当然我们也可以定义自己的文件名，如果这样做，在编译项目时，就必须指定生成文件。</p>
+<p>生成文件可以放在项目的任何位置，只要在配置生成文件的时候，将路径配置好就行。但一般做法就是放在项目的顶层路径，这样有利于保持项目的简洁清晰，同时在配置路径时简单，容易理解。</p>
+<p>对于Java项目，它的结构一般如下：</p>
+<p>Project：这是Java项目，包含了当前项目所有的资源  </p>
+<ul>
+<li>src:存放源资源，各种配置文件</li>
+<li>classes:存放编译后的class文件</li>
+<li>lib:存放第三方JAR包文件夹</li>
+<li>dist:存放项目打包，项目发布文件</li>
+<li>buid.xml：Ant生成文件</li>
+</ul>
+<p>上述结构是一般的Java项目结构，具体的项目可能会有差别。</p>
+<h4 id="3-1-build-xml文件的构成"><a href="#3-1-build-xml文件的构成" class="headerlink" title="3.1: build.xml文件的构成"></a>3.1: build.xml文件的构成</h4><p>一个项目的生成文件的根元素是<code>&lt;project.../&gt;</code>，除此之外就是项目的target元素，target元素是<code>&lt;project&gt;</code>元素的的子元素，也是生成文件的核心所在。</p>
+<ul>
+<li><p><code>&lt;project&gt;</code>元素：主要包含对整个项目的一些说明，以及整个生成文件的路径的basedir。四个常用的属性：default, basedir, name, description. </p>
+<ul>
+<li>default: 指定默认执行的target</li>
+<li>basedir: 指定生成文件中所有路径的基准路径</li>
+<li>name: 项目的名字</li>
+<li>description: 项目的介绍</li>
+</ul>
+</li>
+<li><p><code>&lt;target&gt;</code>元素：target元素是project元素的子元素，用来制定生成目标，每个生成目标(target)由一个或者多个任务(task)组成，因此当执行某个target时，就是以此完成target中的那些任务(task)。常用属性有：name，depends，if，unless, description.</p>
+<ul>
+<li>name: target的名字，非常重要，同一个生成文件不能出现重名的target，当用ant指定运行时就是通过这个属性指定特定的生成目标；</li>
+<li>depends: 可以指定一个或者多个target，表示执行当前target要执行属性指定的target；</li>
+<li>if: 表示只有当当前属性被设置，才执行此target；</li>
+<li>unless: 与if相反，表示当没有设置当前属性时，才执行此target；</li>
+<li>description: 当前target的描述</li>
+</ul>
+</li>
+</ul>
+<p>因而在ant生成文件的基本结构是project元素里面含有多个target元素，而一个target元素包含多个task。</p>
+<ul>
+<li><p><code>&lt;property&gt;</code>元素：property元素用于定义属性，类似于编程语言中的宏变量。<br>  最简单的形式如下：<br>  <code>&lt;property name=&quot;propertyName&quot; value=&quot;value&quot;/&gt;</code><br>  除此之外，还有从file和url读取property的名字和值。<br>  <code>&lt;property file=&quot;filePath&quot;/&gt;</code><br>  <code>&lt;property url=&quot;http://www.sss.xxx&quot;/&gt;</code><br>  在生成文件中获取该property值的方法是${propertyName}。</p>
+</li>
+<li><p><code>&lt;path&gt;、&lt;classpath&gt;</code>元素</p>
+</li>
+</ul>
+<p>这两个元素的作用在于编写生成文件的时候，可能需要用到第三方的JAR包或者是项目下的某些文件，那么我们就可以用这两个元素来进行指定。这两个元素的区别在于，<code>&lt;path&gt;</code>是project元素的子元素，它定义的是一个独立的，有名字供其他元素引用的一个文件集，而<code>&lt;classpath&gt;</code>常常用于某个任务(task)中来指定当前任务的文件集，可以引用别的文件集，也可以自己定义一个文件集。</p>
+<p><code>&lt;path&gt;、&lt;classpath&gt;</code>两个元素接受的子元素有：</p>
+<ul>
+<li><code>&lt;dirset.../&gt;</code>：采用模式字符串指定一系列的目录</li>
+<li><code>&lt;fileset.../&gt;</code>：采用模式自负窜指定一系列的文件</li>
+<li><code>&lt;filelist.../&gt;</code>：使用具体的文件名</li>
+<li><code>&lt;pathelement.../&gt;</code>：用于指定一个或者多个目录</li>
+</ul>
+<p>以上四个子元素都可以指定一些文件或者文件集，供生成文件内部使用。</p>
+<h3 id="4-Ant的Task"><a href="#4-Ant的Task" class="headerlink" title="4. Ant的Task"></a>4. Ant的Task</h3><p>Task是生成文件的真正核心，每个target生成目标都由一个或者多个task组成。<br>Ant的task分为核心task，可选task和用户自定义task。简要介绍一下task中核心任务用的较多的几个：</p>
+<ul>
+<li>javac:这个任务我们很熟悉了，这就是编译java 文件的指令。在这里也是一样，不过可以同时编译多个java文件，必备属性是srcdir和destdir，分别制定源文件的位置和编译后class文件存放的位置。</li>
+<li>java:这个指令我们也很熟悉了，用于运行某个编译后的java类。必备属性classname，用于指定执行的是哪个java类。</li>
+<li>jar：用于生成jar包，必备属性是destfile，用于指定生成jar包的文件名。除此之外，还通常加上一个文件集，用于指定将哪些文件打包到jar文件中。</li>
+<li>echo：用于输出某个字符串</li>
+<li>copy：用于复制文件或者文件夹，也通常与文件集一起使用</li>
+<li>delete：删除文件或者文件夹，也通常与文件集一起使用</li>
+<li>mkdir：用于创建文件夹</li>
+<li>move：用于移动文件或者路径</li>
+</ul>
+<p>具体的使用方法，可以参见ant的manual。</p>
+<p>下面给出一个简单的build.xml文件，该文件定义了编译项目，运行项目，生成jar包等常用的指令，从这个例子中我们可以得到一些开发生成文件的经验。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"> build.xml文件</span><br><span class="line"></span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;GBK&quot;?&gt;&lt;!--指定编码格式--&gt;</span><br><span class="line">&lt;!--定义项目名称为firstXML，基准路径为文件当前路径，默认target为空和描述--&gt;</span><br><span class="line">&lt;project name=&quot;firstXML&quot; basedir=&quot;.&quot; default=&quot;&quot;&gt;</span><br><span class="line">&lt;!--定义三个简单的属性，供后续生成文件内容使用--&gt;</span><br><span class="line">&lt;property name=&quot;src&quot; value=&quot;src&quot; /&gt;</span><br><span class="line">&lt;property name=&quot;classes&quot; value=&quot;classes&quot; /&gt;</span><br><span class="line">&lt;property name=&quot;dest&quot; value=&quot;dest&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--定义一组文件和路径集，供后续生成文件内容使用--&gt;</span><br><span class="line">&lt;!--注意，这里定义的是path元素，里面的id属性可以用来作为reference id使用--&gt;</span><br><span class="line">&lt;path id=&quot;classpath&quot;&gt;</span><br><span class="line">	&lt;pathelement path=&quot;$&#123;classes&#125;&quot;&gt;</span><br><span class="line">&lt;/path&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--开始定义target，即生成目标--&gt;</span><br><span class="line">&lt;!--第一个target，help指令。用于显示当前项目支持的target--&gt;</span><br><span class="line">&lt;target name=&quot;help&quot; description=&quot;打印帮助信息&quot;&gt;</span><br><span class="line">	&lt;echo&gt;help - 打印帮助信息&lt;/echo&gt;</span><br><span class="line">	&lt;echo&gt;compile - 编译java源文件&lt;/echo&gt;</span><br><span class="line">	&lt;echo&gt;run - 运行程序&lt;/echo&gt;</span><br><span class="line">	&lt;echo&gt;build - 打包jar包&lt;/echo&gt;</span><br><span class="line">	&lt;echo&gt;clean - 清除所有编译生成的文件&lt;/echo&gt;</span><br><span class="line">&lt;/target&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--定义compile target，用于编译java源文件--&gt; </span><br><span class="line">&lt;target name=&quot;compile&quot;&gt;</span><br><span class="line">	&lt;!--先删除classes文件夹--&gt;</span><br><span class="line">	&lt;delete dir=&quot;$&#123;classes&#125;&quot; /&gt;</span><br><span class="line">	&lt;!--然后再生成classes文件夹--&gt;</span><br><span class="line">	&lt;mkdir dir=&quot;$&#123;classes&#125;&quot; /&gt;</span><br><span class="line">	&lt;!--编译java文件，编译后的class文件放到classes属性所代表的文件夹内--&gt;</span><br><span class="line">	&lt;javac destdir=&quot;$&#123;classes&#125;&quot; debug=&quot;true&quot; includeantruntime=&quot;yes&quot;</span><br><span class="line">	deprecation=&quot;false&quot; optimize=&quot;false&quot; failonerror=&quot;true&quot;&gt;</span><br><span class="line">		&lt;!--指定编译文件的源位置--&gt;</span><br><span class="line">		&lt;src path=&quot;$&#123;src&#125;&quot;/&gt;</span><br><span class="line">		&lt;!--指定编译过程中可能需要的第三方文件的路径,这里用到了refid去引用上面定义的文件路径集--&gt;</span><br><span class="line">		&lt;classpath refid=&quot;classpath&quot;/&gt;</span><br><span class="line">	&lt;/javac&gt;</span><br><span class="line">&lt;/target&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--定义run target，用于运行java编译文件。运行此target之前，必须先经过compile target--&gt;</span><br><span class="line">&lt;target name=&quot;run&quot; description=&quot;运行程序&quot; depends=&quot;compile&quot;&gt;</span><br><span class="line">	&lt;!--运行一个java小程序，利用fork属性来开启一个新的jvm来执行java命令。这样使得ant工具执行完毕退出后，运行的java程序不会退出。--&gt;</span><br><span class="line">	&lt;java classname=&quot;packageName.ClassName&quot; fork=&quot;yes&quot; failonerror=&quot;true&quot;&gt;</span><br><span class="line">		&lt;!--运行程序需要的第三方文件的路径--&gt;</span><br><span class="line">		&lt;classpath refid=&quot;classpath&quot;/&gt;</span><br><span class="line">		&lt;!--运行程序时需要提供的参数--&gt;</span><br><span class="line">		&lt;arg line=&quot;arg1 arg2&quot;/&gt;</span><br><span class="line">	&lt;/java&gt;</span><br><span class="line">&lt;/target&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--定义build target，用于打包jar包。运行此target之前，必须先经过compile target--&gt;</span><br><span class="line">&lt;target name=&quot;build&quot; description=&quot;打包jar包&quot; depends=&quot;compile&quot;&gt;</span><br><span class="line">	&lt;!--先删除存放jar包的文件夹--&gt;</span><br><span class="line">	&lt;delete dir=&quot;$&#123;dest&#125;&quot;/&gt;</span><br><span class="line">	&lt;!--再创建jar包文件夹--&gt;</span><br><span class="line">	&lt;mkdir dir=&quot;$&#123;dest&#125;&quot;/&gt;</span><br><span class="line">	&lt;!--将classes文件夹下的所有文件都打包到jar包当中去--&gt;</span><br><span class="line">	&lt;jar destfile=&quot;$&#123;dest&#125;/app.jar&quot; basedir=&quot;$&#123;classes&#125;&quot; includes=&quot;**/*.class&quot;&gt;</span><br><span class="line">		&lt;!--为jar包添加属性--&gt;</span><br><span class="line">		&lt;manifest&gt;</span><br><span class="line">			&lt;attribute name=&quot;Name&quot; value=&quot;Value&quot;/&gt;</span><br><span class="line">		&lt;/manifest&gt;</span><br><span class="line">	&lt;/jar&gt;</span><br><span class="line">&lt;/target&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--定义clean target，用于清除所有编译生成的文件--&gt;</span><br><span class="line">&lt;target name=&quot;clean&quot; description=&quot;清除所有编译文件生成的文件&quot;&gt;</span><br><span class="line">	&lt;delete dir=&quot;$&#123;classes&#125;&quot;&gt;</span><br><span class="line">	&lt;delete dir=&quot;$&#123;dest&#125;&quot;&gt;</span><br><span class="line">&lt;/target&gt;</span><br></pre></td></tr></table></figure>
+<p>以上定义了一个很简单的build.xml生成文件，用这个生成文件我们就可以管理java项目了。当然随着java项目结构的越发复杂，生成文件也会变得更加复杂，项目之间的依赖也会变得复杂。但万变不离其宗，掌握好基本的用法，学会查看manual，build.xml文件也就不难写了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/项目管理/" rel="tag">#项目管理</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/05/迈克西姆先生/" rel="next" title="迈克西姆">
+                <i class="fa fa-chevron-left"></i> 迈克西姆
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/19/JSP详解/" rel="prev" title="JSP详解">
+                JSP详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/09/06/自动构建工具Ant/"
+     data-title="自动构建工具Ant"
+     data-content=""
+     data-url="http://www.smartyi8979.com/2016/09/06/自动构建工具Ant/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/06/自动构建工具Ant/"
+           data-title="自动构建工具Ant" data-url="http://www.smartyi8979.com/2016/09/06/自动构建工具Ant/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="一夜花甲" />
+          <p class="site-author-name" itemprop="name">一夜花甲</p>
+          <p class="site-description motion-element" itemprop="description">立言之路</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是Ant"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是Ant</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Ant的常用命令"><span class="nav-number">2.</span> <span class="nav-text">2. Ant的常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Ant的生成文件"><span class="nav-number">3.</span> <span class="nav-text">3. Ant的生成文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-build-xml文件的构成"><span class="nav-number">3.1.</span> <span class="nav-text">3.1: build.xml文件的构成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Ant的Task"><span class="nav-number">4.</span> <span class="nav-text">4. Ant的Task</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一夜花甲</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"smartqiuyi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
